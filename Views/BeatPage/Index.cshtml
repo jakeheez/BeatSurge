@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="content">
+	<h1 class="title">@Model.Producer.name</h1>
+	<h5>@Model.Producer.subtitle</h5>
+</div>
+
+<div class="content">
+	<span>
+		<a href="http://www.soundcloud.com/heaser">HEASER SOUNDCLOUD</a>
+		|
+		<a href="http://www.soundcloud.com/ashlandsummit">SUMMIT SOUNDCLOUD</a>
+		|
+		<a href="http://www.soundcloud.com/yusfmgmt">YOUSEF SOUNDCLOUD</a>
+	</span>
+</div>
+<div class="content">
+	<span>
+		<a href="http://www.twitter.com/heaserbeats">HEASER TWITTER</a>
+		|
+		<a href="http://www.twitter.com/ashlandsummit">SUMMIT TWITTER</a>
+		|
+		<a href="http://www.twitter.com/yusfmgmt">YOUSEF TWITTER</a>
+	</span>
+</div>
+
+	<div class="content">
+		<h2 class="page-title">BEATS</h2>
+		<hr />
+		<div class="container-holder">
+			@{
+			foreach (var beats in Model.Beats)
+			{
+			<div class="beat-container-wrapper">
+				<div class="beat-container">
+					<img class="beat-image" src="~/beatpics/@beats.picName" />
+					<div class="beat-info">"@beats.title"</div>
+					<div class="beat-info">@beats.artist</div>
+					<div class="beat-info">$@beats.price</div>
+					<div class="button-container">
+						<div class="beat-button" onclick="playClicked('@beats.beatId');">
+							<img class="beat-button-pic" src="~/pics/play.png" />
+							Play
+						</div>
+						<div class="beat-button" onclick="purchaseClicked('@beats.beatId');">
+							<img class="beat-button-pic" src="~/pics/purchase.png" />
+							Purchase
+						</div>
+					</div>
+				</div>
+			</div>
+			}
+			}
+		</div>
+
+	</div>

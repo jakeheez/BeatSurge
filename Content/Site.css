@@ -1,0 +1,126 @@
+﻿body {
+	padding-top: 50px;
+	padding-bottom: 20px;
+	/*background-color: rgba(30, 0, 0, 0.95);*/
+	background-color: #996666;
+}
+
+.body-content {
+	background-color: #f1f1f1;
+	width: 65%;
+	padding: 0;
+}
+
+.navbar-inverse .navbar-brand {
+	color: #c1c1c1;
+}
+
+.title {
+	text-align: center;
+	font-weight: inherit;
+}
+
+hr {
+	border-top: 1px solid #000;
+}
+
+a {
+	color: black;
+}
+
+.content {
+	text-align: center;
+	font-weight: 300;
+	width: 100%;
+	display: block;
+	margin: auto;
+	font-family: sans-serif, Arial;
+	padding: 1em 1em 1em 1em;
+}
+
+img {
+	width: 40%;
+	height: 40%;
+	object-fit: contain;
+}
+
+.page-title {
+	margin-top: 0;
+	margin-bottom: 0.5em;
+}
+
+.container-holder {
+	display: inline-block;
+	width: 100%;
+}
+
+.img-container {
+	float: left;
+	width: 50%;
+}
+
+.beat-container-wrapper {
+	width: 50%;
+	height: 100%;
+	float: left;
+	padding: 0.3em 0.3em 0 0.3em;
+}
+
+.beat-container {
+	display: inline-block;
+	text-align: left;
+	width: 100%;
+	height: 100%;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	border-style: solid;
+	border-width: 1px;
+	background-color: #d8d8d8;
+}
+
+.beat-image {
+	width: 30%;
+	float: left;
+}
+
+.beat-info {
+	float: right;
+	width: 70%;
+	padding-left: 1em;
+	margin-top: 0.6em;
+}
+
+.button-container {
+	float: right;
+	width: calc(70% - 1em);
+	margin-left: 0.5em;
+	padding: 0.3em 0.3em 0.3em 0.3em;
+}
+
+.beat-button {
+	float: left;
+	width: calc(50% - 0.8em);
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 0.6em;
+	background-color: #996666;
+	border-color: #353535;
+	margin: 0.2em 0.2em 0.2em 0.2em;
+	text-align: center;
+	font-family: Fantasy;
+	color: #f1f1f1;
+	cursor: pointer;
+}
+
+.beat-button-pic {
+	width: 20%;
+	float: left;
+	margin-left: 0.3em;
+}
+
+.footer-hr {
+	margin: 0 1em 0.5em 1em;
+}
+
+footer {
+	padding-left: 2em;
+}

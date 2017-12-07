@@ -6,128 +6,100 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Hosting;
 
 namespace Heaserbeats.DataAccess
 {
 	public class BeatPageDAL
 	{
 
-		public ProducerViewModel GetProducerById(int producerId)
+		public ProducerViewModel GetPageInfoByProducer(string producerId)
 		{
+			string connectionString = HostingEnvironment.ApplicationPhysicalPath + String.Format("/Producers/{0}/PageInfo.txt", producerId);
 			ProducerViewModel model = new ProducerViewModel();
-
-			string connectionString = Heaserbeats.Properties.Settings.Default.HeaserBeatsConn;
-			using (SqlConnection conn = new SqlConnection(connectionString))
+			using (StreamReader sr = new StreamReader(connectionString))
 			{
-				conn.Open();
-
-				using (SqlCommand command = new SqlCommand(String.Format("select * from producer where producerId = {0}", producerId), conn))
-				{
-					using (SqlDataReader reader = command.ExecuteReader())
-					{
-						while (reader.Read())
-						{
-							model.producerId = reader.GetInt32(0);
-							model.name = reader.GetString(1);
-							model.subtitle = reader.GetString(2);
-							model.primaryColor = reader.GetString(3);
-							model.secondaryColor = reader.GetString(4);
-							model.textColor = reader.GetString(5);
-						}
-					}
-				}
+				string line = sr.ReadLine();
+				string[] values = line.Split(',');
+				model.Title = values[0];
+				model.Subtitle = values[1];
+				model.PrimaryColor = values[2];
+				model.SecondaryColor = values[3];
+				model.TextColor = values[4];
 			}
 			return model;
 		}
 
-		public List<ProducerViewModel> GetAllProducers() 
+		public List<ProducerViewModel> GetAllProducerPages() 
 		{
 			List<ProducerViewModel> producers = new List<ProducerViewModel>();
-			string connectionString = Heaserbeats.Properties.Settings.Default.HeaserBeatsConn;
-			using (SqlConnection conn = new SqlConnection(connectionString))
+
+			// get list of producer folders
+			string connectionString = HostingEnvironment.ApplicationPhysicalPath + "/Producers/ProducerList.txt";
+			string[] values;
+			using (StreamReader sr = new StreamReader(connectionString))
 			{
-				conn.Open();
-
-				using (SqlCommand command = new SqlCommand("select * from producer", conn))
-				{
-					using (SqlDataReader reader = command.ExecuteReader())
-					{
-						while (reader.Read())
-						{
-							ProducerViewModel model = new ProducerViewModel();
-							model.producerId = reader.GetInt32(0);
-							model.name = reader.GetString(1);
-							model.subtitle = reader.GetString(2);
-							model.primaryColor = reader.GetString(3);
-							model.secondaryColor = reader.GetString(4);
-							model.textColor = reader.GetString(5);
-							producers.Add(model);
-						}
-					}
-				}
-
+				string line = sr.ReadLine();
+				values = line.Split(',');
+			}
+			// get producer info for each producer
+			foreach (string x in values)
+			{
+				producers.Add(GetPageInfoByProducer(x));
 			}
 			return producers;
 		}
 
-		public BeatViewModel GetBeatByBeatId(int beatId)
+		public BeatViewModel GetBeatByBeatAndProducer(int beatId, string producerId)
 		{
+			string connectionString = HostingEnvironment.ApplicationPhysicalPath + String.Format("/Producers/{0}/BeatInfo.txt", producerId);
 			BeatViewModel beat = new BeatViewModel();
-			string connectionString = Heaserbeats.Properties.Settings.Default.HeaserBeatsConn;
-			using (SqlConnection conn = new SqlConnection(connectionString))
-			{
-				conn.Open();
 
-				using (SqlCommand command = new SqlCommand(String.Format("select * from beat where beatId = {0}", beatId), conn))
-				{
-					using (SqlDataReader reader = command.ExecuteReader())
+			using (StreamReader sr = new StreamReader(connectionString))
+			{
+				while (sr.Peek() >= 0) {
+					string line = sr.ReadLine();
+					string[] values = line.Split(',');
+					if (values[0] == beatId.ToString())
 					{
-						while (reader.Read())
-						{
-							BeatViewModel model = new BeatViewModel();
-							model.beatId = reader.GetInt32(0);
-							model.title = reader.GetString(1);
-							model.artist = reader.GetString(2);
-							model.price = (double)reader.GetDecimal(3);
-							model.producerId = reader.GetInt32(4);
-							model.picName = "beat.png";
-						}
+						beat.BeatId = Int32.Parse(values[0]);
+						beat.Title = values[1];
+						beat.LeasePrice = Double.Parse(values[2]);
+						beat.BuyPrice = Double.Parse(values[3]);
+						beat.ActiveStatus = (values[4] == "1");
 					}
+					break;
 				}
 
+			}
+			if (beat.ActiveStatus == false) {
+				return new BeatViewModel();
 			}
 			return beat;
 		}
 
-		public List<BeatViewModel> GetAllBeatsByProducerId(int producerId)
+		public List<BeatViewModel> GetAllBeatsByProducer(string producerId)
 		{
 			List<BeatViewModel> beats = new List<BeatViewModel>();
-			string connectionString = Heaserbeats.Properties.Settings.Default.HeaserBeatsConn;
-			using (SqlConnection conn = new SqlConnection(connectionString))
-			{
-				conn.Open();
 
-				using (SqlCommand command = new SqlCommand(String.Format("select * from beat where producerId = {0}", producerId), conn))
+			string connectionString = HostingEnvironment.ApplicationPhysicalPath + String.Format("/Producers/{0}/BeatInfo.txt", producerId);
+			using (StreamReader sr = new StreamReader(connectionString)) {
+				while (sr.Peek() >= 0)
 				{
-					using (SqlDataReader reader = command.ExecuteReader())
-					{
-						while (reader.Read())
-						{
-							BeatViewModel model = new BeatViewModel();
-							model.beatId = reader.GetInt32(0);
-							model.title = reader.GetString(1);
-							model.artist = reader.GetString(2);
-							model.price = (double)reader.GetDecimal(3);
-							model.producerId = reader.GetInt32(4);
-							model.picName = string.Format("{0}.png", model.beatId);
+					BeatViewModel beat = new BeatViewModel();
+					string line = sr.ReadLine();
+					string[] values = line.Split(',');
 
-							beats.Add(model);
-						}
-					}
+					beat.BeatId = Int32.Parse(values[0]);
+					beat.Title = values[1];
+					beat.LeasePrice = Double.Parse(values[2]);
+					beat.BuyPrice = Double.Parse(values[3]);
+					beat.ActiveStatus = (values[4] == "1");
+
+					beats.Add(beat);
 				}
-
 			}
-			return beats;
+				return beats;
 		}
 
 

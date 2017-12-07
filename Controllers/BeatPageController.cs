@@ -12,14 +12,13 @@ namespace Heaserbeats.Controllers
     {
 		BeatPageProvider _beatProvider = new BeatPageProvider();	
 
-		public ActionResult Index(int producerId = 1) {
+		public ActionResult Index(string producerId = "Heaser") {
 
-			//List<BeatViewModel> testBeats = _beatProvider.GenerateTestBeats(producerId);
-			//ProducerViewModel testProducer = _beatProvider.GenerateProducerSettings(producerId);
-			//ViewDataViewModel data = new ViewDataViewModel() { Beats = testBeats, Producer = testProducer};
+			BeatViewModel beat = _beatProvider.GetBeatByBeatAndProducer(1, producerId);
+			ProducerViewModel producer = _beatProvider.GetPageInfoByProducer(producerId);
 
-			ProducerViewModel producer = _beatProvider.GetProducerById(producerId);
-			List<BeatViewModel> beats = _beatProvider.GetAllBeatsByProducerId(producerId);
+			List<BeatViewModel> beats = _beatProvider.GetAllBeatsByProducer(producerId);
+			List<ProducerViewModel> producers = _beatProvider.GetAllProducerPages();
 
 			ViewDataViewModel data = new ViewDataViewModel() { Beats = beats, Producer = producer };
 

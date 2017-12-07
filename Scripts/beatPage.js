@@ -26,7 +26,7 @@ playClicked = function (beatId) {
 	beatId = parseInt(beatId);
 	var beatInfo = { title: "", artist: "" };
 	for (var i = 0; i < model.Beats.length; i++) {
-		if (model.Beats[i].beatId == beatId) {
+		if (model.Beats[i].beatId === beatId) {
 			beatInfo.title = model.Beats[i].title;
 			beatInfo.artist = model.Beats[i].artist;
 		}
@@ -39,7 +39,7 @@ purchaseClicked = function (beatId) {
 	beatId = parseInt(beatId);
 	var beatInfo = { title: "", artist: "" };
 	for (var i = 0; i < model.Beats.length; i++) {
-		if (model.Beats[i].beatId == beatId) {
+		if (model.Beats[i].beatId === beatId) {
 			beatInfo.title = model.Beats[i].title;
 			beatInfo.artist = model.Beats[i].artist;
 		}

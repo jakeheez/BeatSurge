@@ -7,11 +7,11 @@ namespace Heaserbeats.Models
 {
 	public class BeatViewModel
 	{
-		public int beatId{ get; set; }
-		public string title { get; set; }
-		public string artist { get; set; }
-		public double price { get; set; }
-		public string picName { get; set; }
-		public int producerId { get; set; }
+		public int BeatId{ get; set; }
+		public string Title { get; set; }
+		public double LeasePrice { get; set; }
+		public double BuyPrice { get; set; }
+		public bool ActiveStatus { get; set; }
+		public string ProducerId { get; set; }
 	}
 }

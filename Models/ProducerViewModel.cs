@@ -7,12 +7,10 @@ namespace Heaserbeats.Models
 {
 	public class ProducerViewModel
 	{
-		public int producerId { get; set; }
-		public string name { get; set; }
-		public string subtitle { get; set; }
-		public string primaryColor { get; set; }
-		public string secondaryColor { get; set; }
-		public string textColor { get; set; }
-
+		public string Title { get; set; }
+		public string Subtitle { get; set; }
+		public string PrimaryColor { get; set; }
+		public string SecondaryColor { get; set; }
+		public string TextColor { get; set; }
 	}
 }

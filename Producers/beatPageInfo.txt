@@ -1,3 +1,0 @@
-{\"producerId\":1,\"name\":\"Heaser\",\"subtitle\":\"Not Your Grandma's Beats\",\"primaryColor\":\"#493a61\",\"secondaryColor\":\"#d8d8d8\",\"textColor\":\"black\"}
-{\"producerId\":2,\"name\":\"Ashland Summit\",\"subtitle\":\"Your Girl's Favorite Website\",\"primaryColor\":\"#996666\",\"secondaryColor\":\"#cec9ac\",\"textColor\":\"black\"}
-{\"producerId\":3,\"name\":\"Yousef\",\"subtitle\":\"Yousef Type Beats Archive\",\"primaryColor\":\"#3b5377\",\"secondaryColor\":\"#acc7af\",\"textColor\":\"black\"}

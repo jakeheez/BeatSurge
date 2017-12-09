@@ -3,8 +3,8 @@
 }
 
 <div class="content">
-	<h1 class="title">@Model.Producer.name</h1>
-	<h5>@Model.Producer.subtitle</h5>
+	<h1 class="title">@Model.Producer.Title</h1>
+	<h5>@Model.Producer.Subtitle</h5>
 </div>
 
 <div class="content">
@@ -35,16 +35,15 @@
 			{
 			<div class="beat-container-wrapper">
 				<div class="beat-container">
-					<img class="beat-image" src="~/beatpics/@beats.picName" />
-					<div class="beat-info">"@beats.title"</div>
-					<div class="beat-info">@beats.artist</div>
-					<div class="beat-info">$@beats.price</div>
+					<div class="beat-info">"@beats.Title"</div>
+					<div class="beat-info">$@beats.LeasePrice</div>
+					<div class="beat-info">$@beats.BuyPrice</div>
 					<div class="button-container">
-						<div class="beat-button" onclick="playClicked('@beats.beatId');">
+						<div class="beat-button" onclick="playClicked('@beats.BeatId');">
 							<img class="beat-button-pic" src="~/pics/play.png" />
 							Play
 						</div>
-						<div class="beat-button" onclick="purchaseClicked('@beats.beatId');">
+						<div class="beat-button" onclick="purchaseClicked('@beats.BeatId');">
 							<img class="beat-button-pic" src="~/pics/purchase.png" />
 							Purchase
 						</div>

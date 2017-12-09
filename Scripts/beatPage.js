@@ -24,27 +24,25 @@ this.updateViewInfo = function () {
 
 playClicked = function (beatId) {
 	beatId = parseInt(beatId);
-	var beatInfo = { title: "", artist: "" };
+	var beatTitle = "";
 	for (var i = 0; i < model.Beats.length; i++) {
-		if (model.Beats[i].beatId === beatId) {
-			beatInfo.title = model.Beats[i].title;
-			beatInfo.artist = model.Beats[i].artist;
+		if (model.Beats[i].BeatId === beatId) {
+			beatTitle = model.Beats[i].Title;
 		}
 	}
-	alert("You are listening to the soothing sounds of:\n'" + beatInfo.title + "'\n by: " + beatInfo.artist);
+	alert("You are listening to the soothing sounds of '" + beatTitle + "'.");
 	var beatClipUri = getBeatLink(beatId);
 };
 
 purchaseClicked = function (beatId) {
 	beatId = parseInt(beatId);
-	var beatInfo = { title: "", artist: "" };
+	var beatTitle = "";
 	for (var i = 0; i < model.Beats.length; i++) {
-		if (model.Beats[i].beatId === beatId) {
-			beatInfo.title = model.Beats[i].title;
-			beatInfo.artist = model.Beats[i].artist;
+		if (model.Beats[i].BeatId === beatId) {
+			beatTitle = model.Beats[i].Title;
 		}
 	}
-	alert("You clicked the 'Purchase' button for:\n'" + beatInfo.title + "'\n by: " + beatInfo.artist);
+	alert("You clicked purchase for '" + beatTitle + "'.");
 };
 
 getBeatLink = function (beatId) {

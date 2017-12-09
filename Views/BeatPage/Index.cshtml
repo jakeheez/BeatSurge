@@ -3,55 +3,65 @@
 }
 
 <div class="content">
+	<div class="link-bar">
+		SUMMIT
+		<a href="http://www.soundcloud.com/ashlandsummit">
+			<img class="social-pic" src="http://icons.iconarchive.com/icons/xenatt/minimalism/256/App-SoundCloud-icon.png" alt="Soundcloud">
+		</a>
+		<a href="http://www.twitter.com/ashlandsummit">
+			<img class="social-pic" src="https://image.flaticon.com/icons/png/128/174/174876.png" alt="Twitter" width="500" height="600">
+		</a>
+	</div>
+	<div class="link-bar">
+		HEASER
+		<a href="http://www.soundcloud.com/heaser">
+			<img class="social-pic" src="http://icons.iconarchive.com/icons/xenatt/minimalism/256/App-SoundCloud-icon.png" alt="Soundcloud">
+		</a>
+		<a href="http://www.twitter.com/heaserbeats">
+			<img class="social-pic" src="https://image.flaticon.com/icons/png/128/174/174876.png" alt="Twitter" width="500" height="600">
+		</a>
+	</div>
+	<div class="link-bar">
+		YUSF
+		<a href="http://www.soundcloud.com/yusfmgmt">
+			<img class="social-pic" src="http://icons.iconarchive.com/icons/xenatt/minimalism/256/App-SoundCloud-icon.png" alt="Soundcloud">
+		</a>
+		<a href="http://www.twitter.com/yusfmgmt">
+			<img class="social-pic" src="https://image.flaticon.com/icons/png/128/174/174876.png" alt="Twitter" width="500" height="600">
+		</a>
+	</div>
+</div>
+
+<div class="content">
 	<h1 class="title">@Model.Producer.Title</h1>
 	<h5>@Model.Producer.Subtitle</h5>
 </div>
 
 <div class="content">
-	<span>
-		<a href="http://www.soundcloud.com/heaser">HEASER SOUNDCLOUD</a>
-		|
-		<a href="http://www.soundcloud.com/ashlandsummit">SUMMIT SOUNDCLOUD</a>
-		|
-		<a href="http://www.soundcloud.com/yusfmgmt">YOUSEF SOUNDCLOUD</a>
-	</span>
-</div>
-<div class="content">
-	<span>
-		<a href="http://www.twitter.com/heaserbeats">HEASER TWITTER</a>
-		|
-		<a href="http://www.twitter.com/ashlandsummit">SUMMIT TWITTER</a>
-		|
-		<a href="http://www.twitter.com/yusfmgmt">YOUSEF TWITTER</a>
-	</span>
-</div>
-
-	<div class="content">
-		<h2 class="page-title">BEATS</h2>
-		<hr />
-		<div class="container-holder">
-			@{
-			foreach (var beats in Model.Beats)
-			{
-			<div class="beat-container-wrapper">
-				<div class="beat-container">
-					<div class="beat-info">"@beats.Title"</div>
-					<div class="beat-info">$@beats.LeasePrice</div>
-					<div class="beat-info">$@beats.BuyPrice</div>
-					<div class="button-container">
-						<div class="beat-button" onclick="playClicked('@beats.BeatId');">
-							<img class="beat-button-pic" src="~/pics/play.png" />
-							Play
-						</div>
-						<div class="beat-button" onclick="purchaseClicked('@beats.BeatId');">
-							<img class="beat-button-pic" src="~/pics/purchase.png" />
-							Purchase
-						</div>
+	<h2 class="page-title">BEATS</h2>
+	<hr />
+	<div class="container-holder">
+		@{
+		foreach (var beats in Model.Beats)
+		{
+		<div class="beat-container-wrapper">
+			<div class="beat-container">
+				<div class="beat-info">"@beats.Title"</div>
+				<div class="beat-info">$@beats.LeasePrice</div>
+				<div class="beat-info">$@beats.BuyPrice</div>
+				<div class="button-container">
+					<div class="beat-button" onclick="playClicked('@beats.BeatId');">
+						<img class="beat-button-pic" src="~/pics/play.png" />
+						Play
+					</div>
+					<div class="beat-button" onclick="purchaseClicked('@beats.BeatId');">
+						<img class="beat-button-pic" src="~/pics/purchase.png" />
+						Purchase
 					</div>
 				</div>
 			</div>
-			}
-			}
 		</div>
-
+		}
+		}
 	</div>
+</div>

@@ -1,11 +1,10 @@
 ﻿body {
-	padding-top: 50px;
 	padding-bottom: 20px;
 }
 
 .body-content {
 	background-color: #f1f1f1;
-	width: 65%;
+	width: 70%;
 	padding: 0;
 }
 
@@ -15,13 +14,37 @@
 
 .link-bar {
 	float: left;
-	width: 32%;
+	width: 33.3%;
 	display: block;
 }
 
+.uppercase {
+	text-transform: uppercase;
+}
+
 .title {
-	text-align: center;
 	font-weight: inherit;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	font-size: 45px;
+}
+
+.title.subtitle {
+	font-size: 18px;
+}
+
+.title-section-left {
+	width: 60%;
+	text-align: left;
+	float:left;
+	padding-left: 5em;
+}
+
+.title-section-right {
+	width: 40%;
+	text-align: center;
+	float:right;
+	padding-right: 5em;
 }
 
 .social-pic {
@@ -44,6 +67,8 @@ a {
 	margin: auto;
 	font-family: sans-serif, Tahoma;
 	padding: 1em 1em 1em 1em;
+	overflow: hidden;
+	color: black;
 }
 
 img {

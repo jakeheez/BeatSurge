@@ -10,25 +10,7 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body class="body-full">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Heaser", "Index", "BeatPage", new { producerId = "Heaser" }, new { @class = "navbar-brand" })
-				@Html.ActionLink("Summit", "Index", "BeatPage", new { producerId = "Summit" }, new { @class = "navbar-brand" })
-				@Html.ActionLink("Yousef", "Index", "BeatPage", new { producerId = "Yousef" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
-        </div>
-    </div>
-
+   
     <div class="container body-content">
         @RenderBody()
         <hr class="footer-hr" />

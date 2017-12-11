@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Heaserbeats.Providers
 {
@@ -25,6 +26,10 @@ namespace Heaserbeats.Providers
 
 		public List<BeatViewModel> GetAllBeatsByProducer(string producerId) {
 			return _beatDAL.GetAllBeatsByProducer(producerId);
+		}
+
+		public byte[] GetBeatAudio(string producerId, int beatId) {
+			return _beatDAL.GetBeatAudio(producerId, beatId);
 		}
 
 	}

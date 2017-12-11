@@ -1,5 +1,4 @@
-﻿// Index / _Layout js file
-
+﻿
 var model;
 
 this.updateViewOnLoad = function (modelJson) {
@@ -30,8 +29,8 @@ playClicked = function (beatId) {
 			beatTitle = model.Beats[i].Title;
 		}
 	}
+	var beatAudio = this.getBeatAudio(beatId);
 	alert("You are listening to the soothing sounds of '" + beatTitle + "'.");
-	var beatClipUri = getBeatLink(beatId);
 };
 
 purchaseClicked = function (beatId) {
@@ -45,6 +44,21 @@ purchaseClicked = function (beatId) {
 	alert("You clicked purchase for '" + beatTitle + "'.");
 };
 
-getBeatLink = function (beatId) {
-	
+getBeatAudio = function (beatId) {
+	beatId = parseInt(beatId);
+	var producerId = model.Producer.Title;
+	var url = "/BeatPage/GetBeatAudio?producerId=" + producerId + "&beatId=" + beatId;
+	var result;
+
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.onreadystatechange = function () {
+		if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+			return xmlHttp.responseText;
+	}
+
+	xmlHttp.open("GET", url, true);
+	xmlHttp.send();
+
+	result = xmlHttp.onreadystatechange();
+	return result;
 };

@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Hosting;
+using System.Web.Mvc;
 
 namespace Heaserbeats.DataAccess
 {
@@ -99,7 +100,21 @@ namespace Heaserbeats.DataAccess
 					beats.Add(beat);
 				}
 			}
-				return beats;
+			return beats;
+		}
+
+		public byte[] GetBeatAudio(string producerId, int beatId) {
+			string connectionString = HostingEnvironment.ApplicationPhysicalPath + String.Format("/Producers/{0}/Beats/{1}.mp3", producerId, beatId);
+
+			var bytes = new byte[0];
+
+			using (var fs = new FileStream(connectionString, FileMode.Open, FileAccess.Read)) {
+				var br = new BinaryReader(fs);
+				long numBytes = new FileInfo(connectionString).Length;
+				bytes = br.ReadBytes((int)numBytes);
+			}
+
+			return bytes;
 		}
 
 

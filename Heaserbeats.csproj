@@ -99,10 +99,12 @@
     <Content Include="Global.asax" />
     <Content Include="pics\beat.png" />
     <Content Include="pics\favicon.ico" />
+    <Content Include="pics\heaser.png" />
     <Content Include="pics\play.png" />
     <Content Include="pics\purchase.png" />
+    <Content Include="pics\summit.png" />
+    <Content Include="pics\yusf.png" />
     <Content Include="Producers\Heaser\BeatInfo.txt" />
-    <Content Include="Producers\Heaser\Beats\1.mp3" />
     <Content Include="Producers\Heaser\PageInfo.txt" />
     <Content Include="Producers\ProducerList.txt" />
     <Content Include="Producers\Summit\BeatInfo.txt" />
@@ -163,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Producers\Heaser\Beats\" />
     <Folder Include="Producers\Summit\Beats\" />
     <Folder Include="Producers\Yousef\Beats\" />
   </ItemGroup>

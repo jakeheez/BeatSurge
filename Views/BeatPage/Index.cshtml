@@ -44,7 +44,7 @@
 
 <div class="content">
 	<div class="container-holder">
-		<div class="container-wrapper">
+		<div class="container-wrapper list">
 			@{
 				foreach (var beats in Model.Beats)
 				{ 
@@ -58,17 +58,17 @@
 			<div class="player-container secondary-colored">
 				<audio id="audio-player" controls="controls" typeof="audio/mp3"></audio>
 				<div id="player-title">
-					Beat Name
+					Click a beat
 				</div>
 				<div class="button-container">
-					<div id="purchase-button" class="beat-button primary-colored" onclick="beatClicked('1');">
-						<div class="button-text">
-							Purchase
-						</div>
-					</div>
 					<div id="lease-button" class="beat-button primary-colored" onclick="purchaseClicked('1');">
 						<div class="button-text">
 							Lease
+						</div>
+					</div>
+					<div id="purchase-button" class="beat-button primary-colored" onclick="beatClicked('1');">
+						<div class="button-text">
+							Purchase
 						</div>
 					</div>
 				</div>
@@ -78,6 +78,23 @@
 					</div>
 					<div id="beat-buy-price" class="button-lower-text">
 						Buy Price:
+					</div>
+				</div>
+				<hr />
+				<div class="button-text-container">
+					<div class="button-lower-text">
+						Leasing:<br />
+						- You get to use the beat<br />
+						- You don't get to own the beat<br />
+						- You're gay<br />
+						- Just buy the beat homo<br />
+					</div>
+					<div class="button-lower-text">
+						Purchasing:<br />
+						- Full rights to the beat<br />
+						- You own the beat<br />
+						- Walk this beat to the bank<br />
+						- Yuh<br />
 					</div>
 				</div>
 			</div>

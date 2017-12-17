@@ -1,5 +1,6 @@
 ﻿body {
 	padding-bottom: 20px;
+	background-color: #f1f1f1;
 }
 
 .body-content {
@@ -59,6 +60,28 @@ a {
 	color: black;
 }
 
+.page-title {
+	margin-top: 0;
+	margin-bottom: 0.5em;
+}
+
+/* START HOME PAGE */
+
+.producer-window-holder {
+	float: left;
+	width: 33%;
+	text-align: center;
+	padding: 1em 1em 1em 1em;
+}
+
+.producer-pic {
+	width: 100%;
+}
+
+/**/
+
+/* START PRODUCER PAGE */
+
 .content {
 	text-align: center;
 	font-weight: 300;
@@ -77,11 +100,6 @@ img {
 	object-fit: contain;
 }
 
-.page-title {
-	margin-top: 0;
-	margin-bottom: 0.5em;
-}
-
 .container-holder {
 	display: inline-block;
 	width: 100%;
@@ -92,7 +110,15 @@ img {
 	width: 50%;
 }
 
-.beat-container-wrapper {
+#audio-player {
+	width: 100%;
+}
+
+#player-title {
+	text-align: center;
+}
+
+.container-wrapper {
 	width: 50%;
 	height: 100%;
 	float: left;
@@ -100,6 +126,17 @@ img {
 }
 
 .beat-container {
+	display: inline-block;
+	text-align: left;
+	width: 100%;
+	height: 100%;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	border-style: solid;
+	border-width: 1px;
+	cursor: pointer;
+}
+
+.player-container {
 	display: inline-block;
 	text-align: left;
 	width: 100%;
@@ -122,15 +159,16 @@ img {
 }
 
 .button-container {
-	float: right;
-	width: calc(70% - 1em);
-	margin-left: 0.5em;
+	width: 100%;
 	padding: 0.3em 0.3em 0.3em 0.3em;
+	overflow: hidden;
+	height: 3em;
 }
 
 .beat-button {
 	float: left;
 	width: calc(50% - 0.8em);
+	height: 100%;
 	border-style: solid;
 	border-width: 1px;
 	border-radius: 0.6em;
@@ -141,6 +179,24 @@ img {
 	font-family: Fantasy;
 	color: #f1f1f1;
 	cursor: pointer;
+	display: table;
+}
+
+.button-text {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.button-text-container {
+	width: 100%;
+	padding: 0.3em 0.3em 0.3em 0.3em;
+	overflow: hidden;
+}
+
+.button-lower-text {
+	width: 50%;
+	float: left;
+	padding-left: 2em;
 }
 
 .beat-button-pic {
@@ -156,3 +212,5 @@ img {
 footer {
 	padding-left: 2em;
 }
+
+/* END PRODUCER PAGE */

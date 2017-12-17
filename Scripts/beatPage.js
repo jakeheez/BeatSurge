@@ -26,17 +26,29 @@ this.updateViewInfo = function () {
 	}
 };
 
-playClicked = function (beatId) {
+beatClicked = function (beatId) {
 	beatId = parseInt(beatId);
 	var beatTitle = "";
+	var beatLeasePrice = 0;
+	var beatBuyPrice = 0;
+	var producerId = model.Producer.Title;
 	for (var i = 0; i < model.Beats.length; i++) {
 		if (model.Beats[i].BeatId === beatId) {
 			beatTitle = model.Beats[i].Title;
+			beatLeasePrice = "Lease Price: $" + model.Beats[i].LeasePrice;
+			beatBuyPrice = "Buy Price: $" + model.Beats[i].BuyPrice;
 		}
 	}
 
-	var producerId = model.Producer.Title;
-	document.getElementById("beat-audio").src = "/BeatPage/GetBeatAudio?producerId=" + producerId + "&beatId=" + beatId;
+	document.getElementById("player-title").innerText = beatTitle;
+
+	document.getElementById("beat-lease-price").innerText = beatLeasePrice;
+	document.getElementById("purchase-button").onclick = function () { purchaseClicked(beatId) };
+
+	document.getElementById("beat-buy-price").innerText = beatBuyPrice;
+	document.getElementById("lease-button").onclick = function () { leaseClicked(beatId) };
+
+	document.getElementById("audio-player").src = "/BeatPage/GetBeatAudio?producerId=" + producerId + "&beatId=" + beatId;
 
 };
 
@@ -49,4 +61,15 @@ purchaseClicked = function (beatId) {
 		}
 	}
 	alert("You clicked purchase for '" + beatTitle + "'.");
+};
+
+leaseClicked = function (beatId) {
+	beatId = parseInt(beatId);
+	var beatTitle = "";
+	for (var i = 0; i < model.Beats.length; i++) {
+		if (model.Beats[i].BeatId === beatId) {
+			beatTitle = model.Beats[i].Title;
+		}
+	}
+	alert("You clicked lease for '" + beatTitle + "'.");
 };

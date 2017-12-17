@@ -16,8 +16,9 @@ namespace Heaserbeats
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "BeatPage", action = "Index", id = UrlParameter.Optional }
-            );
+				//defaults: new { controller = "HomePage", action = "Home", id = UrlParameter.Optional }
+				defaults: new { controller = "BeatPage", action = "Index", id = UrlParameter.Optional }
+			);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Index";
 }
 
 <div class="content">
@@ -36,7 +36,6 @@
 	<div class="title-section-left">
 		<div class="title uppercase">@Model.Producer.Title</div>
 		<div class="title subtitle">@Model.Producer.Subtitle</div>
-		<audio id="beat-audio" controls="controls" typeof="audio/mp3"></audio>
 	</div>
 	<div class="title-section-right">
 		<div class="title">HELLO</div>
@@ -45,27 +44,48 @@
 
 <div class="content">
 	<div class="container-holder">
-		@{
-		foreach (var beats in Model.Beats)
-		{
-		<div class="beat-container-wrapper">
-			<div class="beat-container secondary-colored">
-				<div class="beat-info">"@beats.Title"</div>
-				<div class="beat-info">$@beats.LeasePrice</div>
-				<div class="beat-info">$@beats.BuyPrice</div>
+		<div class="container-wrapper">
+			@{
+				foreach (var beats in Model.Beats)
+				{ 
+				<div class="beat-container secondary-colored" onclick="beatClicked('@beats.BeatId');">
+					@beats.Title - @Model.Producer.Title	
+				</div>
+				}
+			}
+		</div>
+		<div class="container-wrapper">
+			<div class="player-container secondary-colored">
+				<audio id="audio-player" controls="controls" typeof="audio/mp3"></audio>
+				<div id="player-title">
+					Beat Name
+				</div>
 				<div class="button-container">
-					<div class="beat-button primary-colored" onclick="playClicked('@beats.BeatId');">
-						<img class="beat-button-pic" src="~/pics/play.png" />
-						Play
+					<div id="purchase-button" class="beat-button primary-colored" onclick="beatClicked('1');">
+						<div class="button-text">
+							Purchase
+						</div>
 					</div>
-					<div class="beat-button primary-colored" onclick="purchaseClicked('@beats.BeatId');">
-						<img class="beat-button-pic" src="~/pics/purchase.png" />
-						Purchase
+					<div id="lease-button" class="beat-button primary-colored" onclick="purchaseClicked('1');">
+						<div class="button-text">
+							Lease
+						</div>
+					</div>
+				</div>
+				<div class="button-text-container">
+					<div id="beat-lease-price" class="button-lower-text">
+						Lease Price:
+					</div>
+					<div id="beat-buy-price" class="button-lower-text">
+						Buy Price:
 					</div>
 				</div>
 			</div>
 		</div>
-		}
-		}
 	</div>
 </div>
+
+<script src="~/Scripts/beatPage.js"></script>
+<script type="text/javascript">
+		updateViewOnLoad('@Html.Raw(Json.Encode(Model))');
+</script>

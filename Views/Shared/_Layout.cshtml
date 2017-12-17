@@ -15,15 +15,11 @@
         @RenderBody()
         <hr class="footer-hr" />
         <footer>
-            <p class="footer-right">&copy; @DateTime.Now.Year - Heaserbeats</p>
+            <p class="footer-right">&copy; @DateTime.Now.Year - Beat Hold</p>
         </footer>
     </div>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-	<script src="~/Scripts/beatPage.js"></script>
-	<script type="text/javascript">
-		updateViewOnLoad('@Html.Raw(Json.Encode(Model))');
-	</script>
 </body>
 </html>

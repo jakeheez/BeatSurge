@@ -5,7 +5,7 @@
 
 .body-content {
 	background-color: #f1f1f1;
-	width: 70%;
+	width: 100%;
 	padding: 0;
 }
 
@@ -13,10 +13,37 @@
 	color: #c1c1c1;
 }
 
+.meta-title {
+	font-weight: inherit;
+	font-size: 500%;
+	text-align: center;
+	font-weight: 300;
+	width: 100%;
+	font-family: sans-serif, Tahoma;
+	overflow: hidden;
+	color: black;
+	background-color: #f1f1f1;
+}
+
+.link-bar-holder {
+	width: 100%;
+	overflow: hidden;
+}
+
 .link-bar {
 	float: left;
-	width: 33.3%;
+	width: 33.33%;
 	display: block;
+	background-color: #f1f1f1;
+	text-align: center;
+}
+
+.link-bar.left {
+	text-align: right;
+}
+
+.link-bar.right {
+	text-align: left;
 }
 
 .uppercase {
@@ -32,6 +59,7 @@
 
 .title.subtitle {
 	font-size: 18px;
+	margin-bottom: 0;
 }
 
 .title-section-left {
@@ -49,7 +77,9 @@
 }
 
 .social-pic {
-	width: 5.5%;
+	width: 4%;
+	height: 4%;
+	object-fit: contain;
 }
 
 hr {
@@ -69,13 +99,23 @@ a {
 
 .producer-window-holder {
 	float: left;
-	width: 33%;
+	width: calc(33% - 1em);
 	text-align: center;
 	padding: 1em 1em 1em 1em;
+	background-color: #797979;
+	margin: 0.5em 0.5em 0.5em 0.5em;
 }
 
 .producer-pic {
 	width: 100%;
+}
+
+.producer-section {
+	font-size: 200%;
+	height: 1.5em;
+	width: 100%;
+	margin-top: 0.3em;
+	overflow: hidden;
 }
 
 /**/
@@ -92,12 +132,6 @@ a {
 	padding: 1em 1em 1em 1em;
 	overflow: hidden;
 	color: black;
-}
-
-img {
-	width: 40%;
-	height: 40%;
-	object-fit: contain;
 }
 
 .container-holder {

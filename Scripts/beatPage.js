@@ -48,7 +48,7 @@ beatClicked = function (beatId) {
 	document.getElementById("beat-buy-price").innerText = beatBuyPrice;
 	document.getElementById("lease-button").onclick = function () { leaseClicked(beatId) };
 
-	document.getElementById("audio-player").src = "/BeatPage/GetBeatAudio?producerId=" + producerId + "&beatId=" + beatId;
+	document.getElementById("audio-player").src = "/" + producerId + "/GetBeatAudio?producerId=" + producerId + "&beatId=" + beatId;
 
 };
 

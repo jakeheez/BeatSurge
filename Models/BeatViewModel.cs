@@ -12,6 +12,5 @@ namespace Heaserbeats.Models
 		public double LeasePrice { get; set; }
 		public double BuyPrice { get; set; }
 		public bool ActiveStatus { get; set; }
-		public string ProducerId { get; set; }
 	}
 }

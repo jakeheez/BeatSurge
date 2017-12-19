@@ -53,23 +53,29 @@ beatClicked = function (beatId) {
 };
 
 purchaseClicked = function (beatId) {
-	beatId = parseInt(beatId);
-	var beatTitle = "";
-	for (var i = 0; i < model.Beats.length; i++) {
-		if (model.Beats[i].BeatId === beatId) {
-			beatTitle = model.Beats[i].Title;
+	if (!!beatId) {
+		beatId = parseInt(beatId);
+		var beatTitle = "";
+		for (var i = 0; i < model.Beats.length; i++) {
+			if (model.Beats[i].BeatId === beatId) {
+				beatTitle = model.Beats[i].Title;
+				break;
+			}
 		}
+		alert("You clicked purchase for '" + beatTitle + "'.");
 	}
-	alert("You clicked purchase for '" + beatTitle + "'.");
 };
 
 leaseClicked = function (beatId) {
-	beatId = parseInt(beatId);
-	var beatTitle = "";
-	for (var i = 0; i < model.Beats.length; i++) {
-		if (model.Beats[i].BeatId === beatId) {
-			beatTitle = model.Beats[i].Title;
+	if (!!beatId) {
+		beatId = parseInt(beatId);
+		var beatTitle = "";
+		for (var i = 0; i < model.Beats.length; i++) {
+			if (model.Beats[i].BeatId === beatId) {
+				beatTitle = model.Beats[i].Title;
+				break;
+			}
 		}
+		alert("You clicked lease for '" + beatTitle + "'.");
 	}
-	alert("You clicked lease for '" + beatTitle + "'.");
 };

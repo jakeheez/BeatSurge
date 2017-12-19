@@ -97,12 +97,15 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="pics\background.png" />
     <Content Include="pics\beat.png" />
     <Content Include="pics\favicon.ico" />
     <Content Include="pics\heaser.png" />
     <Content Include="pics\play.png" />
     <Content Include="pics\purchase.png" />
+    <Content Include="pics\soundcloud.png" />
     <Content Include="pics\summit.png" />
+    <Content Include="pics\twitter.png" />
     <Content Include="pics\yusf.png" />
     <Content Include="Producers\Heaser\BeatInfo.txt" />
     <Content Include="Producers\Heaser\PageInfo.txt" />

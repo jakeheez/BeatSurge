@@ -8,7 +8,6 @@ this.updateViewOnLoad = function (modelJson) {
 };
 
 this.updateViewInfo = function () {
-	document.body.style.backgroundColor = model.Producer.PrimaryColor;
 
 	var beatButtons = document.getElementsByClassName("primary-colored");
 	for (var i = 0; i < beatButtons.length; i++) {
@@ -27,29 +26,38 @@ this.updateViewInfo = function () {
 };
 
 beatClicked = function (beatId) {
-	beatId = parseInt(beatId);
-	var beatTitle = "";
-	var beatLeasePrice = 0;
-	var beatBuyPrice = 0;
-	var producerId = model.Producer.Title;
-	for (var i = 0; i < model.Beats.length; i++) {
-		if (model.Beats[i].BeatId === beatId) {
-			beatTitle = model.Beats[i].Title;
-			beatLeasePrice = "Lease Price: $" + model.Beats[i].LeasePrice;
-			beatBuyPrice = "Buy Price: $" + model.Beats[i].BuyPrice;
+	if (!!beatId) {
+		beatId = parseInt(beatId);
+		var beatTitle = "";
+		var beatLeasePrice = 0;
+		var beatBuyPrice = 0;
+		var producerId = model.Producer.Title;
+		for (var i = 0; i < model.Beats.length; i++) {
+			if (model.Beats[i].BeatId === beatId) {
+				beatTitle = model.Beats[i].Title;
+				beatLeasePrice = "Lease Price: $" + model.Beats[i].LeasePrice;
+				beatBuyPrice = "Buy Price: $" + model.Beats[i].BuyPrice;
+				break;
+			}
 		}
+
+		var beatList = document.getElementsByClassName("beat-container");
+		for (var j = 0; j < beatList.length; j++) {
+			beatList[j].style.backgroundColor = "#d8d8d8";
+		}
+
+		document.getElementById("beat " + beatId).style.backgroundColor = model.Producer.SecondaryColor;
+
+		document.getElementById("player-title").innerText = beatTitle;
+
+		document.getElementById("beat-lease-price").innerText = beatLeasePrice;
+		document.getElementById("purchase-button").onclick = function () { purchaseClicked(beatId) };
+
+		document.getElementById("beat-buy-price").innerText = beatBuyPrice;
+		document.getElementById("lease-button").onclick = function () { leaseClicked(beatId) };
+
+		document.getElementById("audio-player").src = "/" + producerId + "/GetBeatAudio?producerId=" + producerId + "&beatId=" + beatId;
 	}
-
-	document.getElementById("player-title").innerText = beatTitle;
-
-	document.getElementById("beat-lease-price").innerText = beatLeasePrice;
-	document.getElementById("purchase-button").onclick = function () { purchaseClicked(beatId) };
-
-	document.getElementById("beat-buy-price").innerText = beatBuyPrice;
-	document.getElementById("lease-button").onclick = function () { leaseClicked(beatId) };
-
-	document.getElementById("audio-player").src = "/" + producerId + "/GetBeatAudio?producerId=" + producerId + "&beatId=" + beatId;
-
 };
 
 purchaseClicked = function (beatId) {

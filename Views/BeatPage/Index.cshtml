@@ -18,14 +18,14 @@
 			@{
 				foreach (var beats in Model.Beats)
 				{ 
-				<div class="beat-container secondary-colored" onclick="beatClicked('@beats.BeatId');">
+				<div id="beat @beats.BeatId" class="beat-container" onclick="beatClicked('@beats.BeatId');">
 					@beats.Title - @Model.Producer.Title	
 				</div>
 				}
 			}
 		</div>
 		<div class="container-wrapper">
-			<div class="player-container secondary-colored">
+			<div class="player-container">
 				<audio id="audio-player" controls="controls" typeof="audio/mp3"></audio>
 				<div id="player-title">
 					Click a beat

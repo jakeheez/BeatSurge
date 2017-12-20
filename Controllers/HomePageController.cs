@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Heaserbeats.Providers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,14 @@ namespace Heaserbeats.Controllers
 {
     public class HomePageController : Controller
     {
-        // GET: HomePage
-        public ActionResult Home()
+		BeatPageProvider _beatProvider = new BeatPageProvider();
+
+		// GET: HomePage
+		public ActionResult Home()
         {
-            return View();
+			var producers = _beatProvider.GetAllProducerPages();
+
+            return View(producers);
         }
     }
 }

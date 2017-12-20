@@ -112,8 +112,8 @@
     <Content Include="Producers\ProducerList.txt" />
     <Content Include="Producers\Summit\BeatInfo.txt" />
     <Content Include="Producers\Summit\PageInfo.txt" />
-    <Content Include="Producers\Yousef\BeatInfo.txt" />
-    <Content Include="Producers\Yousef\PageInfo.txt" />
+    <Content Include="Producers\Yusf\BeatInfo.txt" />
+    <Content Include="Producers\Yusf\PageInfo.txt" />
     <Content Include="Scripts\beatPage.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -122,6 +122,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\homePage.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -170,7 +171,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Producers\Heaser\Beats\" />
     <Folder Include="Producers\Summit\Beats\" />
-    <Folder Include="Producers\Yousef\Beats\" />
+    <Folder Include="Producers\Yusf\Beats\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -9,30 +9,22 @@
 </div>
 
 <div class="content">
-	<div class="producer-window-holder">
-		<a href="/Heaser">
-			<img class="producer-pic" src="~/pics/heaser.png" />
-		</a>
-		<div class="producer-section">
-			HEASER
+	@{
+		foreach (var producer in Model)
+		{
+		<div class="producer-window-holder @producer.Title">
+			<a href="/@producer.Title">
+				<img class="producer-pic" src="~/pics/@(producer.Title).png" />
+			</a>
+			<div class="producer-section uppercase">
+				@producer.Title
+			</div>
 		</div>
-	</div>
-	<div class="producer-window-holder">
-		<a href="/Summit">
-			<img class="producer-pic" src="~/pics/summit.png" />
-		</a>
-		<div class="producer-section">
-			SUMMIT
-		</div>
-	</div>
-	<div class="producer-window-holder">
-		<a href="/Yousef">
-			<img class="producer-pic" src="~/pics/yusf.png" />
-		</a>
-		<div class="producer-section">
-			YUSF
-		</div>
-	</div>
-
+		}
+	}
 </div>
 
+<script src="~/Scripts/homePage.js"></script>
+<script type="text/javascript">
+		updateViewOnLoad('@Html.Raw(Json.Encode(Model))');
+</script>

@@ -13,7 +13,7 @@ namespace Heaserbeats.Controllers
     {
 		BeatPageProvider _beatProvider = new BeatPageProvider();	
 
-		public ActionResult Index(string producerId = "Heaser") {
+		public ActionResult Index(string producerId) {
 
 			ProducerViewModel producer = _beatProvider.GetPageInfoByProducer(producerId);
 			List<BeatViewModel> beats = _beatProvider.GetAllBeatsByProducer(producerId);

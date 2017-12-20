@@ -32,5 +32,9 @@ namespace Heaserbeats.Providers
 			return _beatDAL.GetBeatAudio(producerId, beatId);
 		}
 
+		public List<NewsViewModel> GetAllNewsItems() {
+			return _beatDAL.GetAllNewsItems();
+		}
+
 	}
 }

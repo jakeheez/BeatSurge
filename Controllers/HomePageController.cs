@@ -1,4 +1,5 @@
-﻿using Heaserbeats.Providers;
+﻿using Heaserbeats.Models;
+using Heaserbeats.Providers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,13 @@ namespace Heaserbeats.Controllers
 		// GET: HomePage
 		public ActionResult Home()
         {
-			var producers = _beatProvider.GetAllProducerPages();
+			List<ProducerViewModel> producers = _beatProvider.GetAllProducerPages();
 
-            return View(producers);
-        }
+			List<NewsViewModel> news = _beatProvider.GetAllNewsItems();
+
+			HomePageDataViewModel data = new HomePageDataViewModel() { News = news, Producers = producers };
+
+			return View(data);
+		}
     }
 }

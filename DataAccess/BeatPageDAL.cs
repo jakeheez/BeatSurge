@@ -117,6 +117,31 @@ namespace Heaserbeats.DataAccess
 			return bytes;
 		}
 
+		public List<NewsViewModel> GetAllNewsItems() {
+			List<NewsViewModel> newsList = new List<NewsViewModel>();
+
+			string connectionString = HostingEnvironment.ApplicationPhysicalPath + "/News/NewsItems.txt";
+			using (StreamReader sr = new StreamReader(connectionString))
+			{
+				while (sr.Peek() >= 0)
+				{
+					NewsViewModel news = new NewsViewModel();
+					string line = sr.ReadLine();
+					string[] values = line.Split(',');
+
+					news.NewsId = Int32.Parse(values[0]);
+					news.Title = values[1];
+					news.ArticleText = values[2];
+					news.ActiveStatus = (values[3] == "1");
+
+					newsList.Add(news);
+				}
+			}
+			// flip them to descending order to display most recent news first
+			List<NewsViewModel> newsListSorted = newsList.OrderByDescending(x => x.NewsId).ToList();
+
+			return newsListSorted;
+		}
 
 	}
 }

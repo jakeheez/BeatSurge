@@ -97,6 +97,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="News\NewsItems.txt" />
     <Content Include="pics\background.png" />
     <Content Include="pics\beat.png" />
     <Content Include="pics\favicon.ico" />
@@ -139,6 +140,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BeatViewModel.cs" />
+    <Compile Include="Models\HomePageDataViewModel.cs" />
+    <Compile Include="Models\NewsViewModel.cs" />
     <Compile Include="Models\ProducerViewModel.cs" />
     <Compile Include="Models\ViewDataViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -169,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="News\NewsPics\" />
     <Folder Include="Producers\Heaser\Beats\" />
     <Folder Include="Producers\Summit\Beats\" />
     <Folder Include="Producers\Yusf\Beats\" />

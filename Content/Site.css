@@ -125,11 +125,13 @@ a:active {
 
 .producer-window-holder {
 	float: left;
-	width: calc(33% - 1em);
+	width: 17.1em;
 	text-align: center;
 	padding: 1.5em 1.5em 1.5em 1.5em;
 	background-color: #d8c6c6;
 	margin: 0.5em 0.5em 0.5em 0.5em;
+	margin-right: 5em;
+	margin-left: 5em;
 }
 
 .producer-pic {
@@ -142,6 +144,42 @@ a:active {
 	width: 100%;
 	margin-top: 0.3em;
 	overflow: hidden;
+}
+
+.home-page-section-title {
+	text-align: center;
+	font-size: 18px;
+	width: 100%;
+	display: block;
+	margin: auto;
+	font-family: sans-serif, Tahoma;
+	padding-top: 0.6em;
+	padding-bottom: 0.6em;
+	overflow: hidden;
+	color: white;
+	background-color: #363636;
+}
+
+.news-header {
+	padding-bottom: 1em;
+	padding-top: 1.5em;
+}
+.news-pic {
+	width: 25%;
+	height: 25%;
+	float: left;
+	padding: 2em 2em 2em 2em;
+}
+
+.news-container {
+	overflow: hidden;
+	background-color: #d8d8d8;
+	margin-bottom: 1em;
+}
+
+.news-text {
+	text-align: left;
+	text-indent: 2em;
 }
 
 /**/

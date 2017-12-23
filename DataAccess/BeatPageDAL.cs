@@ -16,19 +16,24 @@ namespace Heaserbeats.DataAccess
 
 		public ProducerViewModel GetPageInfoByProducer(string producerId)
 		{
-			string connectionString = HostingEnvironment.ApplicationPhysicalPath + String.Format("/Producers/{0}/PageInfo.txt", producerId);
-			ProducerViewModel model = new ProducerViewModel();
-			using (StreamReader sr = new StreamReader(connectionString))
-			{
-				string line = sr.ReadLine();
-				string[] values = line.Split(',');
-				model.Title = values[0];
-				model.Subtitle = values[1];
-				model.PrimaryColor = values[2];
-				model.SecondaryColor = values[3];
-				model.TextColor = values[4];
+			try {
+				string connectionString = HostingEnvironment.ApplicationPhysicalPath + String.Format("/Producers/{0}/PageInfo.txt", producerId);
+				ProducerViewModel model = new ProducerViewModel();
+				using (StreamReader sr = new StreamReader(connectionString))
+				{
+					string line = sr.ReadLine();
+					string[] values = line.Split(',');
+					model.Title = values[0];
+					model.Subtitle = values[1];
+					model.PrimaryColor = values[2];
+					model.SecondaryColor = values[3];
+					model.TextColor = values[4];
+				}
+				return model;
 			}
-			return model;
+			catch {
+				throw new Exception("Invalid Url.  Please try again from our home page, BeatHold.com.");
+			}
 		}
 
 		public List<ProducerViewModel> GetAllProducerPages() 

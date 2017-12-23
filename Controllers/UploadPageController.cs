@@ -30,7 +30,7 @@ namespace Heaserbeats.Controllers
 					case "yousmen":
 						ProducerId = "Yusf";
 						break;
-					case "summit":
+					case "TurboGesture35":
 						ProducerId = "Summit";
 						break;
 					case "heezner":

@@ -26,8 +26,13 @@ namespace Heaserbeats.Providers
 			return _beatDAL.GetBeatByBeatAndProducer(beatId, producer);
 		}
 
-		public List<BeatViewModel> GetAllBeatsByProducer(string producerId) {
-			return _beatDAL.GetAllBeatsByProducer(producerId);
+		public List<BeatViewModel> GetAllActiveBeatsByProducer(string producerId) {
+
+			List<BeatViewModel> beats = _beatDAL.GetAllBeatsByProducer(producerId);
+			// filter out beats where active status = 0
+			List<BeatViewModel> activeBeats = beats.Where(x => x.ActiveStatus == true).ToList();
+
+			return activeBeats;
 		}
 
 		public byte[] GetBeatAudio(string producerId, int beatId) {

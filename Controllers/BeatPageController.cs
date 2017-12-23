@@ -16,7 +16,7 @@ namespace Heaserbeats.Controllers
 		public ActionResult Index(string producerId) {
 
 			ProducerViewModel producer = _beatProvider.GetPageInfoByProducer(producerId);
-			List<BeatViewModel> beats = _beatProvider.GetAllBeatsByProducer(producerId);
+			List<BeatViewModel> beats = _beatProvider.GetAllActiveBeatsByProducer(producerId);
 
 			ViewDataViewModel data = new ViewDataViewModel() { Beats = beats, Producer = producer };
 

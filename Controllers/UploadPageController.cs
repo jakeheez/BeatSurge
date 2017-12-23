@@ -27,13 +27,13 @@ namespace Heaserbeats.Controllers
 
 				switch (Password)
 				{
-					case "yousmen":
+					case "RapidoRapido429":
 						ProducerId = "Yusf";
 						break;
 					case "TurboGesture35":
 						ProducerId = "Summit";
 						break;
-					case "heezner":
+					case "JumpOffABridge9000":
 						ProducerId = "Heaser";
 						break;
 					default:
@@ -47,7 +47,7 @@ namespace Heaserbeats.Controllers
 
 				return _beatProvider.UploadBeat(ProducerId, Title, LeasePrice, BuyPrice, Beat);
 			}
-			catch (Exception e)
+			catch
 			{
 				return "Lol dude you gave me garbage, fix your inputs.";
 			}

@@ -14,9 +14,15 @@ namespace Heaserbeats
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 			routes.MapRoute(
+				name: "Upload",
+				url: "UploadFireBeats/{action}",
+				defaults: new { controller = "UploadPage", action = "Upload" }
+			);
+
+			routes.MapRoute(
                 name: "Index",
                 url: "{producerId}/{action}",
-				defaults: new { controller = "BeatPage", action = "Index"}
+				defaults: new { controller = "BeatPage", action = "Index" }
 			);
 
 			routes.MapRoute(

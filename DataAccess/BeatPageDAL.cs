@@ -143,5 +143,36 @@ namespace Heaserbeats.DataAccess
 			return newsListSorted;
 		}
 
+		public string UploadBeat(string producerId, string title, double leasePrice, double buyPrice, HttpPostedFileBase beat) {
+			// Grab the next index
+			int beatIndex = GetNextBeatIndexForProducer(producerId);
+
+			if (beat.ContentLength > 0)
+			{
+				// Create the path to store
+				string pathToSave = HostingEnvironment.ApplicationPhysicalPath + String.Format("/Producers/{0}/Beats/", producerId);
+				// Save the beat file
+				var fileName = beatIndex + ".mp3";
+				beat.SaveAs(pathToSave + fileName);
+			}
+
+			// Update the file we just read to store the beat info
+			string connectionString = HostingEnvironment.ApplicationPhysicalPath + String.Format("/Producers/{0}/BeatInfo.txt", producerId);
+
+			using (System.IO.StreamWriter file = new System.IO.StreamWriter(connectionString))
+			{
+				file.WriteLine(beatIndex + "," + title + "," + leasePrice + "," + buyPrice + ",1");
+			}
+
+			return "The beat was successfully uploaded.";
+		}
+
+		public int GetNextBeatIndexForProducer(string producerId) {
+			List<BeatViewModel> beats = GetAllBeatsByProducer(producerId);
+			// Index starts at 1 in the text file.  Add 1 to count.
+			return beats.Count() + 1;
+
+		}
+
 	}
 }

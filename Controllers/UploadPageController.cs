@@ -52,5 +52,41 @@ namespace Heaserbeats.Controllers
 				return "Lol dude you gave me garbage, fix your inputs.";
 			}
 		}
-    }
+
+		[HttpPost]
+		public string UploadNews(string Title, string ArticleText, HttpPostedFileBase NewsPic, string Password)
+		{
+			try
+			{
+				string ProducerId = "";
+
+				switch (Password)
+				{
+					case "RapidoRapido429":
+						ProducerId = "Yusf";
+						break;
+					case "TurboGesture35":
+						ProducerId = "Summit";
+						break;
+					case "JumpOffABridge9000":
+						ProducerId = "Heaser";
+						break;
+					default:
+						ProducerId = "";
+						break;
+				}
+				if (ProducerId == "")
+				{
+					return "What are you doing here UNAUTHORIZED ACCESS DETECTED SELF DESTRUCTING IN 10 SECONDS REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE";
+				}
+
+				return _beatProvider.UploadNews(Title, ArticleText, NewsPic);
+			}
+			catch
+			{
+				return "Lol dude you gave me garbage, fix your inputs.";
+			}
+		}
+
+	}
 }

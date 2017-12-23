@@ -182,5 +182,33 @@ namespace Heaserbeats.DataAccess
 
 		}
 
+		public string UploadNews(string title, string articleText, HttpPostedFileBase newsPic) {
+			// Grab the next index
+			int newsIndex = GetNextNewsIndex();
+
+			if (newsPic.ContentLength > 0) {
+				// Create the path to store
+				string pathToSave = HostingEnvironment.ApplicationPhysicalPath + "/News/NewsPics/";
+				// Save the beat file
+				var fileName = newsIndex + ".png";
+				newsPic.SaveAs(pathToSave + fileName);
+			}
+
+			// Update the file we just read to store the news info
+			string connectionString = HostingEnvironment.ApplicationPhysicalPath + "/News/NewsItems.txt";
+
+			using (StreamWriter file = File.AppendText(connectionString))
+			{
+				file.WriteLine(newsIndex + "," + title + "," + articleText + ",1");
+			}
+
+			return "The news article was successfully uploaded.";
+		}
+
+		public int GetNextNewsIndex() {
+			List<NewsViewModel> news = GetAllNewsItems();
+			// Index starts at 1 in the text file.  Add 1 to count.
+			return news.Count() + 1;
+		}
 	}
 }

@@ -17,7 +17,7 @@ namespace Heaserbeats.Controllers
         {
 			List<ProducerViewModel> producers = _beatProvider.GetAllProducerPages();
 
-			List<NewsViewModel> news = _beatProvider.GetAllNewsItems();
+			List<NewsViewModel> news = _beatProvider.GetAllActiveNewsItems();
 
 			HomePageDataViewModel data = new HomePageDataViewModel() { News = news, Producers = producers };
 

@@ -39,8 +39,12 @@ namespace Heaserbeats.Providers
 			return _beatDAL.GetBeatAudio(producerId, beatId);
 		}
 
-		public List<NewsViewModel> GetAllNewsItems() {
-			return _beatDAL.GetAllNewsItems();
+		public List<NewsViewModel> GetAllActiveNewsItems() {
+			List<NewsViewModel> news = _beatDAL.GetAllNewsItems();
+			// filter out news where active status = 0
+			List<NewsViewModel> activeNews = news.Where(x => x.ActiveStatus == true).ToList();
+
+			return activeNews;
 		}
 
 		public string UploadBeat(string producerId, string title, string leasePrice, string buyPrice, HttpPostedFileBase beat) {
@@ -51,9 +55,14 @@ namespace Heaserbeats.Providers
 			if (!!title.Contains(',')) {
 				return "Please do not use commas in the title.";
 			}
-
 			return _beatDAL.UploadBeat(producerId, title, leasePriceDouble, buyPriceDouble, beat);
+		}
 
+		public string UploadNews(string title, string articleText, HttpPostedFileBase newsPic) {
+			if (!!title.Contains(',') || articleText.Contains(',')) {
+				return "Please do not use commas in the title or article text.";
+			}
+			return _beatDAL.UploadNews(title, articleText, newsPic);
 		}
 
 	}

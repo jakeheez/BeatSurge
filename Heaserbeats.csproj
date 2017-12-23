@@ -108,12 +108,18 @@
     <Content Include="pics\summit.png" />
     <Content Include="pics\twitter.png" />
     <Content Include="pics\yusf.png" />
-    <Content Include="Producers\Heaser\BeatInfo.txt" />
+    <Content Include="Producers\Heaser\BeatInfo.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Producers\Heaser\PageInfo.txt" />
     <Content Include="Producers\ProducerList.txt" />
-    <Content Include="Producers\Summit\BeatInfo.txt" />
+    <Content Include="Producers\Summit\BeatInfo.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Producers\Summit\PageInfo.txt" />
-    <Content Include="Producers\Yusf\BeatInfo.txt" />
+    <Content Include="Producers\Yusf\BeatInfo.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Producers\Yusf\PageInfo.txt" />
     <Content Include="Scripts\beatPage.js" />
     <Content Include="Scripts\bootstrap.js" />

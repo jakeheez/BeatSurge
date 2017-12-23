@@ -100,7 +100,10 @@ namespace Heaserbeats.DataAccess
 					beats.Add(beat);
 				}
 			}
-			return beats;
+			// flip them to descending order to display most recent beats first
+			List<BeatViewModel> beatListSorted = beats.OrderByDescending(x => x.BeatId).ToList();
+
+			return beatListSorted;
 		}
 
 		public byte[] GetBeatAudio(string producerId, int beatId) {
@@ -159,7 +162,7 @@ namespace Heaserbeats.DataAccess
 			// Update the file we just read to store the beat info
 			string connectionString = HostingEnvironment.ApplicationPhysicalPath + String.Format("/Producers/{0}/BeatInfo.txt", producerId);
 
-			using (System.IO.StreamWriter file = new System.IO.StreamWriter(connectionString))
+			using (StreamWriter file = File.AppendText(connectionString))
 			{
 				file.WriteLine(beatIndex + "," + title + "," + leasePrice + "," + buyPrice + ",1");
 			}

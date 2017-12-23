@@ -1,1 +1,2 @@
-1,asdf,5,9,1
+1,Fire Switch Up 1,49.99,99.99,1
+2,Yousef Beat 2,39.99,99.99,1

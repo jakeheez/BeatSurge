@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = Model.Order + " " + Model.Beat.Title + " by " + Model.Producer.Title;
+}
+
+<div class="content primary-colored text-colored">
+	<div class="title-section-left">
+		<div class="title uppercase">@Model.Order beat</div>
+	</div>
+</div>
+
+<div class="content">
+	<form class="form-section transaction" action="~/BuyBeat/SendTransaction" enctype="multipart/form-data" method="post">
+		<fieldset>
+			<legend class="transaction-info-text">Please enter your full name and email.</legend>
+			<div>
+				<label for="Name">Full Name: </label>
+				<input type="text" name="Name" value="" />
+			</div>
+			<div>
+				<label for="Email">Email: </label>
+				<input type="text" name="Email" value="" />
+			</div>
+			<div>
+				<label>&nbsp;</label>
+				<input type="submit" value="Continue" />
+			</div>
+		</fieldset>
+	</form>
+</div>
+
+<div class="content">
+	<div class="form-section transaction">
+		You will be sent to the transaction page.<br />
+		We will email you the beat after the transaction is complete.
+	</div>
+</div>
+
+<script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+<script src="~/Scripts/buyPage.js"></script>
+<script type="text/javascript">
+		updateViewOnLoad('@Html.Raw(Json.Encode(Model))');
+</script>

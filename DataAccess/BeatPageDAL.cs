@@ -73,8 +73,8 @@ namespace Heaserbeats.DataAccess
 						beat.LeasePrice = Double.Parse(values[2]);
 						beat.BuyPrice = Double.Parse(values[3]);
 						beat.ActiveStatus = (values[4] == "1");
+						break;
 					}
-					break;
 				}
 
 			}

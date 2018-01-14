@@ -320,6 +320,10 @@ footer {
 	text-align: left;
 }
 
+.form-section.transaction {
+	width: 100%;
+}
+
 .form-textarea {
 	width: 100%;
 	height: 15em;
@@ -327,4 +331,8 @@ footer {
 
 .form-textbox {
 	width: 70%;
+}
+
+.transaction-info-text {
+	font-size: 120%;
 }

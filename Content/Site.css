@@ -320,10 +320,6 @@ footer {
 	text-align: left;
 }
 
-.form-section.transaction {
-	width: 100%;
-}
-
 .form-textarea {
 	width: 100%;
 	height: 15em;
@@ -335,4 +331,14 @@ footer {
 
 .transaction-info-text {
 	font-size: 120%;
+}
+
+.buy-info {
+
+}
+
+.buy-info-box {
+	background-color: #d8d8d8;
+	margin-top: 2em;
+	padding: 0.5em 0.5em 0.5em 0.5em;
 }

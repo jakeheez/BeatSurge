@@ -10,29 +10,42 @@
 </div>
 
 <div class="content">
-	<form class="form-section transaction" action="~/BuyBeat/SendTransaction" enctype="multipart/form-data" method="post">
+	<form class="form-section" action="~/BuyBeat/SendTransaction" enctype="multipart/form-data" method="post">
 		<fieldset>
-			<legend class="transaction-info-text">Please enter your full name and email.</legend>
+			<legend class="transaction-info-text">Please enter your payment information.</legend>
 			<div>
 				<label for="Name">Full Name: </label>
-				<input type="text" name="Name" value="" />
+				<input type="text" name="Name" value="" required="" />
 			</div>
 			<div>
 				<label for="Email">Email: </label>
-				<input type="text" name="Email" value="" />
+				<input type="text" name="Email" value="" required="" />
 			</div>
 			<div>
 				<label>&nbsp;</label>
-				<input type="submit" value="Continue" />
+				<input type="submit" value="Send Payment" />
 			</div>
 		</fieldset>
 	</form>
-</div>
 
-<div class="content">
-	<div class="form-section transaction">
-		You will be sent to the transaction page.<br />
-		We will email you the beat after the transaction is complete.
+	<div class="form-section">
+		<div class="buy-info-box">
+			<p class="buy-info">You will be sent to the transaction page.</p>
+			<p class="buy-info">We will email you the beat after the transaction is complete.</p>
+			<p class="buy-info">Beat: @Model.Beat.Title</p>
+			<p class="buy-info">Producer: @Model.Producer.Title</p>
+			<p class="buy-info">Order Method: @Model.Order</p>
+			<p class="buy-info">
+				Price: $@if (Model.Order.ToLower() == "buy")
+				{
+				@Model.Beat.BuyPrice
+				}
+				@if (Model.Order.ToLower() == "lease")
+				{
+				@Model.Beat.LeasePrice
+				}
+			</p>
+		</div>
 	</div>
 </div>
 

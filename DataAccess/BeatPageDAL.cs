@@ -32,7 +32,7 @@ namespace Heaserbeats.DataAccess
 				return model;
 			}
 			catch {
-				throw new Exception("Invalid Url.  Please try again from our home page, BeatHold.com.");
+				throw new Exception("Invalid Url.  Please try again from our home page, BeatSurge.com.");
 			}
 		}
 

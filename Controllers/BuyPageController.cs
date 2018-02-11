@@ -25,7 +25,7 @@ namespace Heaserbeats.Controllers
 				return View(data);
 			}
 			else {
-				throw new Exception("Invalid Url.  Please try again from our home page, BeatHold.com.");
+				throw new Exception("Invalid Url.  Please try again from our home page, BeatSurge.com.");
 			}
         }
 

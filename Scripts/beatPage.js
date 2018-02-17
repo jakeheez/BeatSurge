@@ -51,39 +51,11 @@ beatClicked = function (beatId) {
 		document.getElementById("player-title").innerText = beatTitle;
 
 		document.getElementById("beat-lease-price").innerText = beatLeasePrice;
-		document.getElementById("purchase-button").onclick = function () { purchaseClicked(beatId) };
+		document.getElementById("purchase-button").href = "/" + producerId + "/Buy/" + beatId;
 
 		document.getElementById("beat-buy-price").innerText = beatBuyPrice;
-		document.getElementById("lease-button").onclick = function () { leaseClicked(beatId) };
+		document.getElementById("lease-button").href = "/" + producerId + "/Lease/" + beatId;
 
 		document.getElementById("audio-player").src = "/" + producerId + "/GetBeatAudio?producerId=" + producerId + "&beatId=" + beatId;
-	}
-};
-
-purchaseClicked = function (beatId) {
-	if (!!beatId) {
-		beatId = parseInt(beatId);
-		var beatTitle = "";
-		for (var i = 0; i < model.Beats.length; i++) {
-			if (model.Beats[i].BeatId === beatId) {
-				beatTitle = model.Beats[i].Title;
-				break;
-			}
-		}
-		alert("You clicked purchase for '" + beatTitle + "'.");
-	}
-};
-
-leaseClicked = function (beatId) {
-	if (!!beatId) {
-		beatId = parseInt(beatId);
-		var beatTitle = "";
-		for (var i = 0; i < model.Beats.length; i++) {
-			if (model.Beats[i].BeatId === beatId) {
-				beatTitle = model.Beats[i].Title;
-				break;
-			}
-		}
-		alert("You clicked lease for '" + beatTitle + "'.");
 	}
 };

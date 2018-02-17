@@ -318,6 +318,7 @@ footer {
 	float: left;
 	padding-left: 2em;
 	text-align: left;
+	padding: 1.5em 1.5em 1.5em 1.5em;
 }
 
 .form-textarea {
@@ -333,12 +334,54 @@ footer {
 	font-size: 120%;
 }
 
-.buy-info {
+.buy-info-section {
+	margin-bottom: 1em;
+	overflow: hidden;
+}
 
+.buy-info {
+	font-size: medium;
+	float: right;
+	width: 70%;
+	padding-left: 2em;
+}
+
+.buy-info-pic {
+	width: 30%;
+	height: 30%;
+	float: left;
 }
 
 .buy-info-box {
 	background-color: #d8d8d8;
-	margin-top: 2em;
+	padding: 2em 2em 2em 2em;
+	overflow: hidden;
+}
+
+.buy-input {
+	border: none;
+	width: 100%;
+	padding: 0.3em 0.3em 0.3em 1em;
+}
+
+.buy-input.button {
 	padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.buy-input-row {
+	margin-bottom: 1em;
+}
+
+.buy-double-input {
+	width: 50%;
+	float: left;
+	padding-right: 20%;
+}
+
+.fieldset-buy {
+	padding: 1em 2em 1em 2em;
+}
+
+.buy-label {
+	width: 100%;
 }

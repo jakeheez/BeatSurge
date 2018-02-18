@@ -9,8 +9,8 @@ namespace Heaserbeats.Models
 	{
 		public int BeatId{ get; set; }
 		public string Title { get; set; }
-		public double LeasePrice { get; set; }
-		public double BuyPrice { get; set; }
+		public int LeasePrice { get; set; }
+		public int BuyPrice { get; set; }
 		public bool ActiveStatus { get; set; }
 	}
 }

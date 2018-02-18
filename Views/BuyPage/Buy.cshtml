@@ -10,30 +10,30 @@
 </div>
 
 <div class="content">
-	<form class="form-section" action="~/BuyBeat/SendTransaction" enctype="multipart/form-data" method="post">
+	<form class="form-section" action="~/@Model.Producer.Title/@Model.Order/@Model.Beat.BeatId/SendTransaction" method="post" id="payment-form">
 		<fieldset class="fieldset-buy secondary-colored">
 			<div class="buy-input-row">
-				<label class="buy-label" for="Name">Full Name</label>
-				<input class="buy-input" type="text" name="Name" value="" required="" />
+				<label class="buy-label" for="formItem-Name">Full Name</label>
+				<input class="buy-input" type="text" id="formItem-Name" value="" required="" />
 			</div>
 			<div class="buy-input-row">
-				<label class="buy-label" for="Email">Email</label>
-				<input class="buy-input" type="text" name="Email" value="" required="" />
+				<label class="buy-label" for="formItem-Email">Email</label>
+				<input class="buy-input" type="text" id="formItem-Email" value="" required="" />
 			</div>
 		</fieldset>
 		<fieldset class="fieldset-buy secondary-colored">
 			<div class="buy-input-row">
-				<label class="buy-label" for="Card">Card Number</label>
-				<input class="buy-input" type="text" name="Card" value="" required="" />
+				<label class="buy-label" for="formItem-cardNumber">Card Number</label>
+				<div class="buy-input input" type="text" id="formItem-cardNumber" value="" required="" />
 			</div>
 			<div class="buy-input-row">
 				<div class="buy-double-input">
-					<label class="buy-label" for="Expiration">Expiration</label>
-					<input class="buy-input" type="text" name="Expiration" value="" required="" />
+					<label class="buy-label" for="formItem-cardExpiry">Expiration (MMYYYY)</label>
+					<div class="buy-input input" type="text" id="formItem-cardExpiry" value="" required="" />
 				</div>
 				<div class="buy-double-input">
-					<label class="buy-label" for="CVC">CVC</label>
-					<input class="buy-input" type="text" name="CVC" value="" required="" />
+					<label class="buy-label" for="formItem-cardCvc">CVC</label>
+					<div class="buy-input input" type="text" id="formItem-cardCvc" value="" required="" />
 				</div>
 			</div>
 		</fieldset>
@@ -41,6 +41,7 @@
 			<div class="buy-input-row">
 				<input class="buy-input button primary-colored text-colored" type="submit" value="Send Payment" />
 			</div>
+			<div id="card-errors" role="alert"></div>
 		</fieldset>
 	</form>
 

@@ -10,5 +10,6 @@ namespace Heaserbeats.Models
 		public BeatViewModel Beat { get; set; }
 		public ProducerViewModel Producer { get; set; }
 		public string Order { get; set; }
+		public string StripeKey { get; set; }
 	}
 }

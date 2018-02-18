@@ -26,7 +26,7 @@ this.updateViewInfo = function () {
 };
 
 beatClicked = function (beatId) {
-	if (!!beatId) {
+	if (beatId !== null || beatId !== undefined) {
 		beatId = parseInt(beatId);
 		var beatTitle = "";
 		var beatLeasePrice = 0;

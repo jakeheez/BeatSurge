@@ -5,6 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Stripe;
+using System.IO;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace Heaserbeats.Controllers
 {
@@ -30,8 +34,52 @@ namespace Heaserbeats.Controllers
         }
 
 		[HttpPost]
-		public string UploadBeat() {
-			return "hi";
+		public ActionResult SendTransaction(string stripeToken) 
+		{
+			try 
+			{
+				// we need to snip out the parameters from the Url
+				string fullPath = HttpContext.Request.Url.AbsolutePath;
+				if (fullPath.StartsWith("/"))
+				{
+					fullPath = fullPath.Substring(1);
+				}
+				string[] urlParams = fullPath.Split('/');
+				string producerId = urlParams[0];
+				string order = urlParams[1];
+				int beatId = Int32.Parse(urlParams[2]);
+
+				BeatViewModel beat = _beatProvider.GetBeatByBeatAndProducer(beatId, producerId);
+				// Grab the correct price (in cents)
+				int price;
+				if (order == "Lease" || order == "lease") {
+					price = beat.LeasePrice * 100;
+				}
+				else if (order == "buy" || order == "Buy") {
+					price = beat.BuyPrice * 100;
+				}
+				else {
+					return new HttpStatusCodeResult(500);
+				}
+
+				var description = order + " beat from Beat Surge";
+
+				StripeConfiguration.SetApiKey("sk_test_2lXc09VaNVcne3gwVte1XILP");
+				var charges = new StripeChargeService();
+				var charge = charges.Create(new StripeChargeCreateOptions
+				{
+					Amount = price,
+					Currency = "usd",
+					Description = description,
+					SourceTokenOrExistingSourceId = stripeToken
+				});
+
+				// Return a 'thank you for your purchase' screen here
+				return new HttpStatusCodeResult(200, "You successfully ordered " + beat.Title);
+			}
+			catch (Exception e) {
+				return new HttpStatusCodeResult(500, e.Message);
+			}
 		}
 
 	}

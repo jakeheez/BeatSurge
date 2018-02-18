@@ -70,8 +70,8 @@ namespace Heaserbeats.DataAccess
 					{
 						beat.BeatId = Int32.Parse(values[0]);
 						beat.Title = values[1];
-						beat.LeasePrice = Double.Parse(values[2]);
-						beat.BuyPrice = Double.Parse(values[3]);
+						beat.LeasePrice = Int32.Parse(values[2]);
+						beat.BuyPrice = Int32.Parse(values[3]);
 						beat.ActiveStatus = (values[4] == "1");
 						break;
 					}
@@ -98,8 +98,8 @@ namespace Heaserbeats.DataAccess
 
 					beat.BeatId = Int32.Parse(values[0]);
 					beat.Title = values[1];
-					beat.LeasePrice = Double.Parse(values[2]);
-					beat.BuyPrice = Double.Parse(values[3]);
+					beat.LeasePrice = Int32.Parse(values[2]);
+					beat.BuyPrice = Int32.Parse(values[3]);
 					beat.ActiveStatus = (values[4] == "1");
 
 					beats.Add(beat);
@@ -151,7 +151,7 @@ namespace Heaserbeats.DataAccess
 			return newsListSorted;
 		}
 
-		public string UploadBeat(string producerId, string title, double leasePrice, double buyPrice, HttpPostedFileBase beat) {
+		public string UploadBeat(string producerId, string title, int leasePrice, int buyPrice, HttpPostedFileBase beat) {
 			// Grab the next index
 			int beatIndex = GetNextBeatIndexForProducer(producerId);
 

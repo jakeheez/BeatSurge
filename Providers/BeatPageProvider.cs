@@ -47,15 +47,23 @@ namespace Heaserbeats.Providers
 			return activeNews;
 		}
 
-		public string UploadBeat(string producerId, string title, string leasePrice, string buyPrice, HttpPostedFileBase beat) {
+		public string UploadBeat(string producerId, string title, string leasePrice, string buyPrice, HttpPostedFileBase beat) 
+		{
+			int leasePriceInt;
+			int buyPriceInt;
 
-			double leasePriceDouble = double.Parse(leasePrice);
-			double buyPriceDouble = double.Parse(buyPrice);
+			try {
+				leasePriceInt = Int32.Parse(leasePrice);
+				buyPriceInt = Int32.Parse(buyPrice);
+			}
+			catch (Exception) {
+				return "Please only use whole numbers for prices (ex: $50 instead of $49.99).";
+			}
 
 			if (!!title.Contains(',')) {
 				return "Please do not use commas in the title.";
 			}
-			return _beatDAL.UploadBeat(producerId, title, leasePriceDouble, buyPriceDouble, beat);
+			return _beatDAL.UploadBeat(producerId, title, leasePriceInt, buyPriceInt, beat);
 		}
 
 		public string UploadNews(string title, string articleText, HttpPostedFileBase newsPic) {

@@ -14,22 +14,34 @@ namespace Heaserbeats.Controllers
 		BeatPageProvider _beatProvider = new BeatPageProvider();	
 
 		public ActionResult Index(string producerId) {
+			try 
+			{
+				ProducerViewModel producer = _beatProvider.GetPageInfoByProducer(producerId);
+				List<BeatViewModel> beats = _beatProvider.GetAllActiveBeatsByProducer(producerId);
 
-			ProducerViewModel producer = _beatProvider.GetPageInfoByProducer(producerId);
-			List<BeatViewModel> beats = _beatProvider.GetAllActiveBeatsByProducer(producerId);
+				ViewDataViewModel data = new ViewDataViewModel() { Beats = beats, Producer = producer };
 
-			ViewDataViewModel data = new ViewDataViewModel() { Beats = beats, Producer = producer };
-
-			return View(data);
+				return View(data);
+			}
+			catch (Exception) 
+			{
+				return new HttpStatusCodeResult(400, "Invalid Url.  Please try again from our home page, BeatSurge.com.");
+			}
 		}
 
 		[HttpGet]
 		public ActionResult GetBeatAudio(string producerId, int beatId) {
-			var bytes = _beatProvider.GetBeatAudio(producerId, beatId);
-			var result = File(bytes, "audio/mpeg", String.Format("{0}.mp3", beatId));
-			return result;
+			try 
+			{
+				var bytes = _beatProvider.GetBeatAudio(producerId, beatId);
+				var result = File(bytes, "audio/mpeg", String.Format("{0}.mp3", beatId));
+				return result;
+			}
+			catch (Exception e)
+			{
+				return new HttpStatusCodeResult(500, e.Message);
+			}
 		}
 
-		
     }
 }

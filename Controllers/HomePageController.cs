@@ -15,13 +15,19 @@ namespace Heaserbeats.Controllers
 		// GET: HomePage
 		public ActionResult Home()
         {
-			List<ProducerViewModel> producers = _beatProvider.GetAllProducerPages();
+			try {
+				List<ProducerViewModel> producers = _beatProvider.GetAllProducerPages();
 
-			List<NewsViewModel> news = _beatProvider.GetAllActiveNewsItems();
+				List<NewsViewModel> news = _beatProvider.GetAllActiveNewsItems();
 
-			HomePageDataViewModel data = new HomePageDataViewModel() { News = news, Producers = producers };
+				HomePageDataViewModel data = new HomePageDataViewModel() { News = news, Producers = producers };
 
-			return View(data);
+				return View(data);
+			}
+			catch (Exception) {
+				return new HttpStatusCodeResult(400, "Invalid Url.  Please try again from our home page, BeatSurge.com.");
+			}
+
 		}
     }
 }

@@ -118,7 +118,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Producers\Heaser\PageInfo.txt" />
+    <Content Include="Producers\Passwords.txt" />
     <Content Include="Producers\ProducerList.txt" />
+    <Content Include="Producers\StripeToken.txt" />
     <Content Include="Producers\Summit\BeatInfo.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

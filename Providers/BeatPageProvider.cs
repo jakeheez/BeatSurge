@@ -73,5 +73,13 @@ namespace Heaserbeats.Providers
 			return _beatDAL.UploadNews(title, articleText, newsPic);
 		}
 
+		public string GetProducerByPassword(string password) {
+			return _beatDAL.GetProducerByPassword(password);
+		}
+
+		public string GetStripeApiKey() {
+			return _beatDAL.GetStripeApiKey();
+		}
+
 	}
 }

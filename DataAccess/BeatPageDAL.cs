@@ -210,5 +210,42 @@ namespace Heaserbeats.DataAccess
 			// Index starts at 1 in the text file.  Add 1 to count.
 			return news.Count() + 1;
 		}
+
+		public string GetProducerByPassword(string password) {
+			// Get list of all producers
+			string connectionStringProducers = HostingEnvironment.ApplicationPhysicalPath + "/Producers/ProducerList.txt";
+			string[] producers;
+			using (StreamReader sr = new StreamReader(connectionStringProducers))
+			{
+				string line = sr.ReadLine();
+				producers = line.Split(',');
+			}
+			// Get list of all passwords
+			string connectionStringPasswords = HostingEnvironment.ApplicationPhysicalPath + "/Producers/Passwords.txt";
+			string[] passwords;
+			using (StreamReader sr = new StreamReader(connectionStringPasswords))
+			{
+				string line = sr.ReadLine();
+				passwords = line.Split(',');
+			}
+
+			for (var i = 0; i < passwords.Length; i++) {
+				if (password == passwords[i]) {
+					return producers[i];
+				}
+			}
+			return "";
+		}
+
+		public string GetStripeApiKey() {
+			string connectionString = HostingEnvironment.ApplicationPhysicalPath + "/Producers/StripeToken.txt";
+			string key;
+			using (StreamReader sr = new StreamReader(connectionString))
+			{
+				key = sr.ReadLine();
+			}
+			return key;
+		}
+
 	}
 }

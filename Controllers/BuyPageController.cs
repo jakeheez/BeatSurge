@@ -64,7 +64,7 @@ namespace Heaserbeats.Controllers
 
 				var description = order + " beat from Beat Surge";
 
-				StripeConfiguration.SetApiKey("sk_test_2lXc09VaNVcne3gwVte1XILP");
+				StripeConfiguration.SetApiKey(_beatProvider.GetStripeApiKey());
 				var charges = new StripeChargeService();
 				var charge = charges.Create(new StripeChargeCreateOptions
 				{
@@ -74,6 +74,8 @@ namespace Heaserbeats.Controllers
 					SourceTokenOrExistingSourceId = stripeToken
 				});
 
+				// Update db with any successful purchase information
+				// Email buyer the beat
 				// Return a 'thank you for your purchase' screen here
 				return new HttpStatusCodeResult(200, "You successfully ordered " + beat.Title);
 			}

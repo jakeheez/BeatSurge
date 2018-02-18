@@ -24,23 +24,9 @@ namespace Heaserbeats.Controllers
 			try
 			{
 				string ProducerId = "";
+				ProducerId = _beatProvider.GetProducerByPassword(Password);
 
-				switch (Password)
-				{
-					case "RapidoRapido429":
-						ProducerId = "Yusf";
-						break;
-					case "TurboGesture35":
-						ProducerId = "Summit";
-						break;
-					case "JumpOffABridge9000":
-						ProducerId = "Heaser";
-						break;
-					default:
-						ProducerId = "";
-						break;
-				}
-			if (ProducerId == "")
+				if (ProducerId == "")
 				{
 					return "What are you doing here UNAUTHORIZED ACCESS DETECTED SELF DESTRUCTING IN 10 SECONDS REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE";
 				}
@@ -59,22 +45,8 @@ namespace Heaserbeats.Controllers
 			try
 			{
 				string ProducerId = "";
+				ProducerId = _beatProvider.GetProducerByPassword(Password);
 
-				switch (Password)
-				{
-					case "RapidoRapido429":
-						ProducerId = "Yusf";
-						break;
-					case "TurboGesture35":
-						ProducerId = "Summit";
-						break;
-					case "JumpOffABridge9000":
-						ProducerId = "Heaser";
-						break;
-					default:
-						ProducerId = "";
-						break;
-				}
 				if (ProducerId == "")
 				{
 					return "What are you doing here UNAUTHORIZED ACCESS DETECTED SELF DESTRUCTING IN 10 SECONDS REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE";

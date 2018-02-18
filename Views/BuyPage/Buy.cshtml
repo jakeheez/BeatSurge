@@ -39,7 +39,7 @@
 		</fieldset>
 		<fieldset class="fieldset-buy secondary-colored">
 			<div class="buy-input-row">
-				<input class="buy-input button primary-colored text-colored" type="submit" value="Send Payment" />
+				<input class="buy-input button primary-colored text-colored" type="submit" value="Send Payment ($@if (Model.Order.ToLower() == "buy"){@Model.Beat.BuyPrice}@if (Model.Order.ToLower() == "lease"){@Model.Beat.LeasePrice})" />
 			</div>
 			<div id="card-errors" role="alert"></div>
 		</fieldset>
@@ -53,14 +53,7 @@
 				<p class="buy-info">Producer: @Model.Producer.Title</p>
 				<p class="buy-info">Order Method: @Model.Order</p>
 				<p class="buy-info">
-					Price: $@if (Model.Order.ToLower() == "buy")
-					{
-					@Model.Beat.BuyPrice
-					}
-					@if (Model.Order.ToLower() == "lease")
-					{
-					@Model.Beat.LeasePrice
-					}
+					Price: $@if (Model.Order.ToLower() == "buy"){@Model.Beat.BuyPrice}@if (Model.Order.ToLower() == "lease"){@Model.Beat.LeasePrice}
 				</p>
 			</div>
 			<div class="buy-info-section">

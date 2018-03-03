@@ -14,27 +14,23 @@
 		<fieldset class="fieldset-buy secondary-colored">
 			<div class="buy-input-row">
 				<label class="buy-label" for="formItem-Name">Full Name</label>
-				<input class="buy-input" type="text" id="formItem-Name" value="" required="" />
+				<input class="buy-input extra-input" type="text" id="formItem-Name" value="" required="" />
 			</div>
 			<div class="buy-input-row">
 				<label class="buy-label" for="formItem-Email">Email</label>
-				<input class="buy-input" type="text" id="formItem-Email" value="" required="" />
+				<input class="buy-input extra-input" type="text" id="formItem-Email" value="" required="" />
 			</div>
-		</fieldset>
-		<fieldset class="fieldset-buy secondary-colored">
 			<div class="buy-input-row">
 				<label class="buy-label" for="formItem-cardNumber">Card Number</label>
-				<div class="buy-input input" type="text" id="formItem-cardNumber" value="" required="" />
+				<div class="buy-input input" type="text" id="formItem-cardNumber" value="" required=""></div>
 			</div>
 			<div class="buy-input-row">
-				<div class="buy-double-input">
-					<label class="buy-label" for="formItem-cardExpiry">Expiration (MMYYYY)</label>
-					<div class="buy-input input" type="text" id="formItem-cardExpiry" value="" required="" />
-				</div>
-				<div class="buy-double-input">
-					<label class="buy-label" for="formItem-cardCvc">CVC</label>
-					<div class="buy-input input" type="text" id="formItem-cardCvc" value="" required="" />
-				</div>
+				<label class="buy-label" for="formItem-cardExpiry">Expiration</label>
+				<div class="buy-input input" type="text" id="formItem-cardExpiry" value="" required=""></div>
+			</div>
+			<div class="buy-input-row">
+				<label class="buy-label" for="formItem-cardCvc">CVC</label>
+				<div class="buy-input input" type="text" id="formItem-cardCvc" value="" required=""></div>
 			</div>
 		</fieldset>
 		<fieldset class="fieldset-buy secondary-colored">
@@ -62,6 +58,10 @@
 		</div>
 	</div>
 
+</div>
+
+<div class="content">
+	Questions or concerns?  Email  @(Model.Producer.Title)@@BeatSurge.com
 </div>
 
 <script type="text/javascript" src="https://js.stripe.com/v3/"></script>

@@ -30,13 +30,25 @@ this.updateViewInfo = function () {
 	var elements = stripe.elements();
 	var form = document.getElementById("payment-form");
 
-	var cardNumber = elements.create("cardNumber");
+	var elementClasses = {
+		focus: 'focused',
+		empty: 'empty',
+		invalid: 'invalid'
+	};
+
+	var cardNumber = elements.create("cardNumber", {
+		classes: elementClasses
+	});
 	cardNumber.mount("#formItem-cardNumber");
 
-	var cardExipry = elements.create("cardExpiry");
+	var cardExipry = elements.create("cardExpiry", {
+		classes: elementClasses
+	});
 	cardExipry.mount("#formItem-cardExpiry");
 
-	var cardCvc = elements.create("cardCvc");
+	var cardCvc = elements.create("cardCvc", {
+		classes: elementClasses
+	});
 	cardCvc.mount("#formItem-cardCvc");
 
 	form.addEventListener("submit", function (event) {

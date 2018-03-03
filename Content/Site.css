@@ -132,6 +132,13 @@ a:active {
 	margin-left: 5em;
 }
 
+@media (max-width: 1200px) {
+	.producer-window-holder {
+		margin-right: 2em;
+		margin-left: 2em;
+	}
+}
+
 .producer-pic {
 	width: 100%;
 }
@@ -357,10 +364,20 @@ footer {
 	overflow: hidden;
 }
 
+.buy-input.input.StripeElement,
 .buy-input {
 	border: none;
-	width: 100%;
-	padding: 0.3em 0.3em 0.3em 1em;
+	width: 70%;
+	padding: 0.7em 0.7em 0.7em 0.7em;
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 5px;
+}
+
+.buy-input.extra-input {
+	padding-top: 0.6em;
+	padding-bottom: 0.6em;
 }
 
 .buy-input.button {
@@ -369,12 +386,7 @@ footer {
 
 .buy-input-row {
 	margin-bottom: 1em;
-}
-
-.buy-double-input {
-	width: 50%;
-	float: left;
-	padding-right: 10%;
+	text-align: center;
 }
 
 .fieldset-buy {
@@ -383,4 +395,6 @@ footer {
 
 .buy-label {
 	width: 100%;
+	padding-left: 17%;
+	text-align: left;
 }

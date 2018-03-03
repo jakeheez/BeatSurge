@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Hosting;
 using System.Web.Mvc;
@@ -245,6 +246,52 @@ namespace Heaserbeats.DataAccess
 				key = sr.ReadLine();
 			}
 			return key;
+		}
+
+		public void EnterNewPurchaseRecord(string fullName, string email, string order, int beatId, string producerId, int price) {
+			string connectionString = HostingEnvironment.ApplicationPhysicalPath + "/Producers/TransactionHistory.txt";
+			using (StreamWriter file = File.AppendText(connectionString))
+			{
+				file.WriteLine(fullName + "," + email + "," + order + "," + producerId + "," + beatId + "," + price);
+			}
+			return;
+		}
+
+		public void InactivateBeat (int beatId, string producerId) {
+			string connectionString = HostingEnvironment.ApplicationPhysicalPath + String.Format("/Producers/{0}/BeatInfo.txt", producerId);
+			BeatViewModel beat = new BeatViewModel();
+			string line = "";
+			string oldFile = "";
+
+			// Get full file
+			using (StreamReader fullFile = new StreamReader(connectionString)) {
+				oldFile = fullFile.ReadToEnd();
+			}
+			// Get line to update
+			using (StreamReader sr = new StreamReader(connectionString))
+			{
+				while (sr.Peek() >= 0)
+				{
+					line = sr.ReadLine();
+					string[] values = line.Split(',');
+					if (values[0] == beatId.ToString())
+					{
+						break;
+					}
+				}
+			}
+			string newLine = line;
+			// update last character of line, which is activestatus
+			StringBuilder sb = new StringBuilder(newLine);
+			sb[newLine.Length - 1] = '0';
+			newLine = sb.ToString();
+
+			// update file with new line
+			using (StreamWriter writer = new StreamWriter(connectionString)) {
+				string newFile = oldFile.Replace(line, newLine);
+				writer.Write(newFile);
+			}
+			return;
 		}
 
 	}

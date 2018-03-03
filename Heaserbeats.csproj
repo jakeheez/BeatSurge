@@ -125,6 +125,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Producers\Summit\PageInfo.txt" />
+    <Content Include="Producers\TransactionHistory.txt" />
     <Content Include="Producers\Yusf\BeatInfo.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

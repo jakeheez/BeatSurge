@@ -34,10 +34,13 @@ namespace Heaserbeats.Controllers
         }
 
 		[HttpPost]
-		public ActionResult SendTransaction(string stripeToken) 
+		public ActionResult SendTransaction(string stripeToken, string fullName, string email) 
 		{
 			try 
 			{
+				fullName = fullName.Replace(",", "");
+				email = email.Replace(",", "");
+
 				// we need to snip out the parameters from the Url
 				string fullPath = HttpContext.Request.Url.AbsolutePath;
 				if (fullPath.StartsWith("/"))
@@ -74,10 +77,21 @@ namespace Heaserbeats.Controllers
 					SourceTokenOrExistingSourceId = stripeToken
 				});
 
-				// Update db with any successful purchase information
-				// Email buyer the beat
-				// Return a 'thank you for your purchase' screen here
-				return new HttpStatusCodeResult(200, "You successfully ordered " + beat.Title);
+				if (charge.Status == "succeeded") {
+					// Format price to dollars again for storage purposes
+					price = price / 100;
+
+					_beatProvider.EnterNewPurchaseRecord(fullName, email, order, beatId, producerId, price);
+					_beatProvider.SendBeatToEmail(email, beatId, producerId);
+
+					if (order == "buy" || order == "Buy") {
+						_beatProvider.InactivateBeat(beatId, producerId);
+					}
+					return View("PurchaseSucceeded");
+				}
+				else {
+					return View("PurchaseFailed");
+				}
 			}
 			catch (Exception e) {
 				return new HttpStatusCodeResult(500, e.Message);

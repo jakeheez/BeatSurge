@@ -81,5 +81,20 @@ namespace Heaserbeats.Providers
 			return _beatDAL.GetStripeApiKey();
 		}
 
+		public void SendBeatToEmail(string email, int beatId, string producerId) {
+			// send beat to email
+			return;
+		}
+
+		public void EnterNewPurchaseRecord(string fullName, string email, string order, int beatId, string producerId, int price) {
+			_beatDAL.EnterNewPurchaseRecord(fullName, email, order, beatId, producerId, price);
+			return;
+		}
+
+		public void InactivateBeat(int beatId, string producerId) {
+			_beatDAL.InactivateBeat(beatId, producerId);
+			return;
+		}
+
 	}
 }

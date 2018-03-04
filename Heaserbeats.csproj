@@ -118,6 +118,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Producers\Heaser\PageInfo.txt" />
+    <Content Include="Producers\NoReplyPassword.txt" />
     <Content Include="Producers\Passwords.txt" />
     <Content Include="Producers\ProducerList.txt" />
     <Content Include="Producers\StripeToken.txt" />
@@ -184,6 +185,8 @@
     <Content Include="Views\HomePage\Home.cshtml" />
     <Content Include="Views\UploadPage\Upload.cshtml" />
     <Content Include="Views\BuyPage\Buy.cshtml" />
+    <Content Include="Views\BuyPage\PurchaseSucceeded.cshtml" />
+    <Content Include="Views\BuyPage\PurchaseFailed.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

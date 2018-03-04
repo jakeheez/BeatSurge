@@ -294,5 +294,15 @@ namespace Heaserbeats.DataAccess
 			return;
 		}
 
+		public string GetNoReplyPassword() {
+			string password = "";
+			string connectionStringProducers = HostingEnvironment.ApplicationPhysicalPath + "/Producers/NoReplyPassword.txt";
+			using (StreamReader sr = new StreamReader(connectionStringProducers))
+			{
+				password = sr.ReadLine();
+			}
+			return password;
+		}
+
 	}
 }

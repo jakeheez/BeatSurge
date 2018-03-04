@@ -4,8 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.Web.Hosting;
 using System.Web.Mvc;
 
 namespace Heaserbeats.Providers
@@ -82,7 +84,25 @@ namespace Heaserbeats.Providers
 		}
 
 		public void SendBeatToEmail(string email, int beatId, string producerId) {
-			// send beat to email
+			MailMessage mail = new MailMessage();
+			SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+			mail.From = new MailAddress("Heaser@BeatSurge.com");
+			mail.To.Add(email);
+			mail.Subject = "Test Beatsurge Email";
+			mail.Body = "This is a test for Beatsurge.";
+
+			SmtpServer.Port = 587;
+			string password = _beatDAL.GetNoReplyPassword();
+			SmtpServer.Credentials = new System.Net.NetworkCredential("no-reply@beatsurge.com", password);
+			SmtpServer.EnableSsl = true;
+
+			System.Net.Mail.Attachment attachment;
+			// Access file storage from provider, for convenience
+			attachment = new System.Net.Mail.Attachment(HostingEnvironment.ApplicationPhysicalPath + String.Format("/Producers/{0}/Beats/{1}.mp3", producerId, beatId));
+			mail.Attachments.Add(attachment);
+
+			SmtpServer.Send(mail);
+
 			return;
 		}
 

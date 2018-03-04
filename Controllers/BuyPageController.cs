@@ -65,7 +65,7 @@ namespace Heaserbeats.Controllers
 					return new HttpStatusCodeResult(500);
 				}
 
-				var description = order + " " + beat.Title + " from Beat Surge";
+				var description = order + " " + beat.Title + " by " + producerId + ", customer: " + fullName + ", email: " + email;
 
 				StripeConfiguration.SetApiKey(_beatProvider.GetStripeApiKey());
 				var charges = new StripeChargeService();

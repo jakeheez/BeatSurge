@@ -1,6 +1,5 @@
 /bin/Heaserbeats.dll
 /bin/
 /obj/
-/Producers/Passwords.txt
-/Producers/StripeToken.txt
-/Producers/NoReplyPassword.txt
+/Producers/
+/News/
